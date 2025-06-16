@@ -1,0 +1,1691 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>M.Tech & GATE Preparation Hub - GradPath</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Page-specific styles */
+        :root {
+            --primary-color: #3b82f6;
+            --primary-light: #dbeafe;
+            --primary-dark: #2563eb;
+            --secondary-color: #10b981;
+            --secondary-light: #d1fae5;
+            --text-dark: #1a2b49;
+            --text-light: #5a6987;
+            --border-color: #e2e8f0;
+            --bg-light: #f8fafc;
+            --card-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+        }
+        
+        /* Back Button Styles */
+        .back-button {
+            display: inline-flex;
+            align-items: center;
+            padding: 10px 20px;
+            background-color: white;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            color: var(--text-dark);
+            font-weight: 500;
+            text-decoration: none;
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+        }
+        
+        .back-button i {
+            margin-right: 8px;
+            font-size: 0.9rem;
+        }
+        
+        .back-button:hover {
+            background-color: var(--primary-light);
+            color: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        body {
+            font-family: 'Inter', 'Poppins', sans-serif;
+            color: var(--text-dark);
+            background-color: var(--bg-light);
+            margin: 0;
+            padding: 0;
+        }
+        
+        /* Hero Section */
+        .hero-section {
+            background: linear-gradient(135deg, #f0f7ff 0%, #e6f0ff 100%);
+            padding: 80px 0 60px;
+            text-align: center;
+        }
+        
+        .hero-section h1 {
+            font-size: 2.5rem;
+            color: var(--text-dark);
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+        
+        .hero-section p {
+            font-size: 1.2rem;
+            color: var(--text-light);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        /* Section Containers */
+        .section-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+        
+        .section-title {
+            font-size: 2rem;
+            color: var(--text-dark);
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        
+        .section-description {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 40px;
+        }
+        
+        /* Navigation Tabs */
+        .nav-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+        
+        .nav-tab {
+            padding: 12px 25px;
+            background-color: white;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+        
+        .nav-tab:hover, .nav-tab.active {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        .tab-content {
+            display: none;
+        }
+        
+        .tab-content.active {
+            display: block;
+            animation: fadeIn 0.5s ease forwards;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        /* Feature Cards */
+        .feature-cards {
+            padding: 60px 0;
+        }
+        
+        .cards-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .feature-card {
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+            padding: 30px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 0.6s ease forwards;
+        }
+        
+        .feature-card:nth-child(1) { animation-delay: 0.1s; }
+        .feature-card:nth-child(2) { animation-delay: 0.2s; }
+        .feature-card:nth-child(3) { animation-delay: 0.3s; }
+        .feature-card:nth-child(4) { animation-delay: 0.4s; }
+        .feature-card:nth-child(5) { animation-delay: 0.5s; }
+        
+        .feature-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 15px 35px rgba(59, 130, 246, 0.1);
+        }
+        
+        .feature-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, rgba(59, 130, 246, 0.05) 0%, rgba(16, 185, 129, 0.05) 100%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: 1;
+        }
+        
+        .feature-card:hover::after {
+            opacity: 1;
+        }
+        
+        .card-icon {
+            width: 70px;
+            height: 70px;
+            border-radius: 14px;
+            background-color: rgba(59, 130, 246, 0.1);
+            color: #3b82f6;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .card-content {
+            position: relative;
+            z-index: 2;
+            flex: 1;
+        }
+        
+        .card-title {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: #1a2b49;
+            margin-bottom: 10px;
+        }
+        
+        .card-subtitle {
+            font-size: 1rem;
+            font-weight: 500;
+            color: #3b82f6;
+            margin-bottom: 15px;
+        }
+        
+        .card-description {
+            font-size: 0.95rem;
+            color: #5a6987;
+            line-height: 1.6;
+        }
+        
+        .card-link {
+            display: inline-flex;
+            align-items: center;
+            color: #3b82f6;
+            font-weight: 500;
+            margin-top: 20px;
+            text-decoration: none;
+            transition: transform 0.2s ease;
+        }
+        
+        .card-link i {
+            margin-left: 5px;
+            transition: transform 0.2s ease;
+        }
+        
+        .card-link:hover i {
+            transform: translateX(3px);
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Syllabus Section */
+        .syllabus-section {
+            padding: 80px 0;
+            background-color: #f8fafc;
+        }
+        
+        .branch-tabs {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 30px;
+        }
+        
+        .branch-tab {
+            padding: 12px 20px;
+            background-color: white;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        .branch-tab:hover, .branch-tab.active {
+            background-color: var(--primary-color);
+            color: white;
+            border-color: var(--primary-color);
+        }
+        
+        .branch-content {
+            display: none;
+            background-color: white;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: var(--card-shadow);
+            animation: fadeIn 0.5s ease forwards;
+        }
+        
+        .branch-content.active {
+            display: block;
+        }
+        
+        .syllabus-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        
+        .syllabus-item {
+            background-color: var(--primary-light);
+            padding: 15px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .syllabus-item i {
+            color: var(--primary-color);
+            margin-right: 10px;
+            font-size: 1.2rem;
+        }
+        
+        .syllabus-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .syllabus-card {
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+            padding: 30px;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 0.6s ease forwards;
+        }
+        
+        .syllabus-card:nth-child(1) { animation-delay: 0.1s; }
+        .syllabus-card:nth-child(2) { animation-delay: 0.2s; }
+        .syllabus-card:nth-child(3) { animation-delay: 0.3s; }
+        .syllabus-card:nth-child(4) { animation-delay: 0.4s; }
+        
+        .syllabus-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(59, 130, 246, 0.1);
+        }
+        
+        .syllabus-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 12px;
+            background-color: rgba(59, 130, 246, 0.1);
+            color: #3b82f6;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        
+        .syllabus-content h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #1a2b49;
+            margin-bottom: 10px;
+        }
+        
+        .syllabus-content p {
+            font-size: 0.95rem;
+            color: #5a6987;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        
+        .download-btn {
+            display: inline-flex;
+            align-items: center;
+            background-color: #3b82f6;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-weight: 500;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            margin-top: auto;
+            cursor: pointer;
+            border: none;
+        }
+        
+        .download-btn i {
+            margin-right: 8px;
+        }
+        
+        .download-btn:hover {
+            background-color: #2563eb;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(59, 130, 246, 0.2);
+            color: white;
+        }
+        
+        /* Books Section */
+        .books-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+        }
+        
+        .book-card {
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: var(--card-shadow);
+            overflow: hidden;
+            transition: all 0.3s ease;
+            height: 100%;
+        }
+        
+        .book-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .book-subject {
+            background-color: var(--primary-light);
+            color: var(--primary-color);
+            padding: 10px 15px;
+            font-weight: 600;
+        }
+        
+        .book-details {
+            padding: 20px;
+        }
+        
+        .book-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+        
+        .book-author {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+        }
+        
+        .book-links {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .book-link {
+            padding: 8px 12px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+        }
+        
+        .book-link.amazon {
+            background-color: #ff9900;
+            color: white;
+        }
+        
+        .book-link.flipkart {
+            background-color: #2874f0;
+            color: white;
+        }
+        
+        .book-link i {
+            margin-right: 5px;
+        }
+        
+        /* College Comparison Table Styles */
+        .college-comparison-section {
+            margin: 40px 0;
+        }
+        
+        .table-container {
+            overflow-x: auto;
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: var(--card-shadow);
+            margin-bottom: 20px;
+        }
+        
+        .college-comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 800px;
+        }
+        
+        .college-comparison-table thead {
+            position: sticky;
+            top: 0;
+            background-color: var(--primary-light);
+            z-index: 10;
+        }
+        
+        .college-comparison-table th {
+            padding: 15px 20px;
+            text-align: left;
+            color: var(--primary-dark);
+            font-weight: 600;
+            border-bottom: 2px solid var(--border-color);
+        }
+        
+        .college-comparison-table tbody tr {
+            transition: all 0.3s ease;
+        }
+        
+        .college-comparison-table tbody tr:nth-child(even) {
+            background-color: rgba(59, 130, 246, 0.05);
+        }
+        
+        .college-comparison-table tbody tr:hover {
+            background-color: rgba(59, 130, 246, 0.1);
+        }
+        
+        .college-comparison-table td {
+            padding: 15px 20px;
+            border-bottom: 1px solid var(--border-color);
+            vertical-align: middle;
+        }
+        
+        .college-comparison-table tr:last-child td {
+            border-bottom: none;
+        }
+        
+        .college-comparison-table tr:hover {
+            background-color: var(--primary-light);
+        }
+        
+        .college-comparison-table .rank {
+            font-weight: 600;
+            color: var(--primary-color);
+            font-size: 1.1rem;
+            width: 60px;
+        }
+        
+        .college-comparison-table .college {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            min-width: 300px;
+        }
+        
+        .college-logo {
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        
+        .college-logo img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+        
+        .college-info {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .college-name {
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 4px;
+        }
+        
+        .college-location {
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+        
+        .ranking {
+            color: var(--text-dark);
+            min-width: 180px;
+        }
+        
+        .cutoff {
+            font-weight: 500;
+            color: var(--text-dark);
+            min-width: 180px;
+        }
+        
+        .fees {
+            font-weight: 600;
+            color: var(--text-dark);
+            min-width: 120px;
+        }
+        
+        .fees-note {
+            font-size: 0.8rem;
+            font-weight: normal;
+            color: var(--text-light);
+        }
+        
+        .table-note {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            text-align: center;
+            margin-top: 10px;
+        }
+        
+        .table-note i {
+            color: var(--primary-color);
+            margin-right: 5px;
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .college-comparison-section {
+                margin: 30px 0;
+            }
+            
+            .table-container {
+                border-radius: 8px;
+            }
+            
+            .college-comparison-table th,
+            .college-comparison-table td {
+                padding: 12px 15px;
+            }
+        }
+        
+        /* Coaching Section */
+        .coaching-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .coaching-tab {
+            padding: 12px 30px;
+            background-color: white;
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+        
+        .coaching-tab:hover, .coaching-tab.active {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        .coaching-content {
+            display: none;
+        }
+        
+        .coaching-content.active {
+            display: block;
+            animation: fadeIn 0.5s ease forwards;
+        }
+        
+        .coaching-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+        }
+        
+        .coaching-card {
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: var(--card-shadow);
+            overflow: hidden;
+            transition: all 0.3s ease;
+            animation: fadeInUp 0.6s ease forwards;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        
+        .coaching-card:nth-child(1) { animation-delay: 0.1s; }
+        .coaching-card:nth-child(2) { animation-delay: 0.2s; }
+        .coaching-card:nth-child(3) { animation-delay: 0.3s; }
+        .coaching-card:nth-child(4) { animation-delay: 0.4s; }
+        
+        .coaching-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 15px 35px rgba(59, 130, 246, 0.1);
+        }
+        
+        .coaching-header {
+            padding: 20px;
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .coaching-logo {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background-color: var(--primary-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            color: var(--primary-color);
+        }
+        
+        .coaching-name {
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+        
+        .coaching-type {
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+        
+        .coaching-details {
+            padding: 20px;
+        }
+        
+        .coaching-description {
+            margin-bottom: 20px;
+            line-height: 1.5;
+            color: var(--text-light);
+        }
+        
+        .coaching-feature {
+            display: flex;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+        
+        .coaching-feature i {
+            color: var(--secondary-color);
+            margin-right: 10px;
+        }
+        
+        .coaching-price {
+            font-weight: 600;
+            color: var(--primary-color);
+            font-size: 1.1rem;
+            margin: 15px 0;
+        }
+        
+        .coaching-link {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: var(--primary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        .coaching-link i {
+            margin-right: 8px;
+        }
+        
+        .coaching-link:hover {
+            background-color: var(--primary-dark);
+        }
+        
+        /* Offline Coaching Cards */
+        .offline-coaching-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            animation: fadeIn 0.5s ease forwards;
+        }
+        
+        .offline-coaching-card {
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: var(--card-shadow);
+            overflow: hidden;
+            transition: all 0.3s ease;
+            animation: fadeInUp 0.6s ease forwards;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        
+        .offline-coaching-card:nth-child(1) { animation-delay: 0.1s; }
+        .offline-coaching-card:nth-child(2) { animation-delay: 0.2s; }
+        .offline-coaching-card:nth-child(3) { animation-delay: 0.3s; }
+        
+        .offline-coaching-header {
+            padding: 20px;
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            background-color: var(--primary-light);
+        }
+        
+        .offline-coaching-logo {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            color: white;
+        }
+        
+        .offline-coaching-name {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--primary-dark);
+        }
+        
+        .offline-coaching-details {
+            padding: 20px;
+        }
+        
+        .offline-coaching-info {
+            display: flex;
+            margin-bottom: 15px;
+            align-items: flex-start;
+        }
+        
+        .offline-coaching-info i {
+            color: var(--primary-color);
+            margin-right: 10px;
+            margin-top: 3px;
+            flex-shrink: 0;
+        }
+        
+        .offline-coaching-info span {
+            line-height: 1.5;
+        }
+        
+        /* Strategy Section */
+        .strategy-toggles {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+        
+        .strategy-toggle {
+            padding: 10px 25px;
+            background-color: white;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        .strategy-toggle:hover, .strategy-toggle.active {
+            background-color: var(--primary-color);
+            color: white;
+            border-color: var(--primary-color);
+        }
+        
+        .strategy-content {
+            display: none;
+            background-color: white;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: var(--card-shadow);
+        }
+        
+        .strategy-content.active {
+            display: block;
+            animation: fadeIn 0.5s ease forwards;
+        }
+        
+        .strategy-steps {
+            margin-top: 20px;
+        }
+        
+        .strategy-step {
+            display: flex;
+            margin-bottom: 20px;
+        }
+        
+        .step-number {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: var(--primary-color);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+        
+        .step-content h4 {
+            margin-top: 0;
+            margin-bottom: 8px;
+        }
+        
+        .step-content p {
+            margin-top: 0;
+            color: var(--text-light);
+        }
+        
+        /* Download success message */
+        .download-message {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #10b981;
+            color: white;
+            padding: 15px 25px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            transform: translateY(100px);
+            opacity: 0;
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+        
+        .download-message.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
+        
+        .download-message i {
+            margin-right: 10px;
+            font-size: 20px;
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .hero-section {
+                padding: 60px 0 40px;
+            }
+            
+            .hero-section h1 {
+                font-size: 2rem;
+            }
+            
+            .hero-section p {
+                font-size: 1rem;
+                padding: 0 20px;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .section-description {
+                font-size: 1rem;
+                padding: 0 20px;
+            }
+            
+            .nav-tabs, .branch-tabs, .coaching-tabs, .strategy-toggles {
+                flex-wrap: wrap;
+            }
+            
+            .cards-container, .syllabus-grid, .books-grid, .coaching-grid, .offline-coaching-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .feature-card, .syllabus-card {
+                padding: 25px;
+            }
+            
+            .branch-content, .strategy-content {
+                padding: 20px;
+            }
+            
+            .syllabus-list {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">GradPath</a>
+            <div class="nav-links">
+                <button id="closeMenu" class="close-menu"><i class="fas fa-times"></i></button>
+                <a href="index.html#vision">Our Vision</a>
+                <a href="index.html#mission">Our Mission</a>
+                <a href="index.html#features">Features</a>
+                <a href="index.html#contact">Contact</a>
+                <a href="dashboard.html" class="nav-cta">Dashboard</a>
+            </div>
+            <button id="openMenu" class="open-menu"><i class="fas fa-bars"></i></button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <h1>M.Tech & GATE Preparation Hub</h1>
+            <p>Your comprehensive resource for GATE exam preparation and M.Tech admission guidance</p>
+        </div>
+    </section>
+
+    <!-- Main Navigation Tabs -->
+    <div class="section-container">
+        <div class="nav-tabs">
+            <div class="nav-tab active" data-tab="overview">Overview</div>
+            <div class="nav-tab" data-tab="gate">GATE Preparation</div>
+            <div class="nav-tab" data-tab="mtech">M.Tech Resources</div>
+            <div class="nav-tab" data-tab="syllabus">Syllabus Downloads</div>
+        </div>
+
+        <!-- Overview Tab Content -->
+        <div class="tab-content active" id="overview-content">
+            <!-- Feature Cards Section -->
+            <section class="feature-cards">
+                <div class="cards-container">
+                    <!-- Card 1: Entrance Exam Information -->
+                    <div class="feature-card" onclick="switchTab('gate')">
+                        <div class="card-icon">
+                            <i class="fas fa-file-alt"></i>
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">GATE Exam Information</h3>
+                            <p class="card-subtitle">Complete guide to the Graduate Aptitude Test in Engineering</p>
+                            <p class="card-description">Explore eligibility, exam pattern, syllabus, and registration process all in one place.</p>
+                            <a href="javascript:void(0)" onclick="switchTab('gate')" class="card-link">Learn more <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+
+                    <!-- Card 2: Coaching Class Recommendations -->
+                    <div class="feature-card" onclick="switchTab('gate', 'coaching')">
+                        <div class="card-icon" style="background-color: rgba(16, 185, 129, 0.1); color: #10b981;">
+                            <i class="fas fa-chalkboard-teacher"></i>
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">Coaching Recommendations</h3>
+                            <p class="card-subtitle">Top online and offline coaching suggestions</p>
+                            <p class="card-description">Online: Physics Wallah, Unacademy. Offline: IMS, Educate Classes. Find what fits your style.</p>
+                            <a href="javascript:void(0)" onclick="switchTab('gate', 'coaching')" class="card-link">Learn more <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+
+                    <!-- Card 3: Online Prep Resources -->
+                    <div class="feature-card" onclick="switchTab('mtech')">
+                        <div class="card-icon" style="background-color: rgba(139, 92, 246, 0.1); color: #8b5cf6;">
+                            <i class="fas fa-laptop"></i>
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">M.Tech Resources</h3>
+                            <p class="card-subtitle">Comprehensive M.Tech preparation resources</p>
+                            <p class="card-description">Curated links from Coursera, Udemy, AWS Academy, and more for subject-wise learning.</p>
+                            <a href="javascript:void(0)" onclick="switchTab('mtech')" class="card-link">Learn more <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+
+                    <!-- Card 4: Syllabus Downloads -->
+                    <div class="feature-card" onclick="switchTab('syllabus')">
+                        <div class="card-icon" style="background-color: rgba(249, 115, 22, 0.1); color: #f97316;">
+                            <i class="fas fa-download"></i>
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">Syllabus Downloads</h3>
+                            <p class="card-subtitle">Download official GATE syllabi for all branches</p>
+                            <p class="card-description">Get the complete syllabus for CS, EC, EE, ME and other branches to plan your preparation effectively.</p>
+                            <a href="javascript:void(0)" onclick="switchTab('syllabus')" class="card-link">Download Now <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- GATE Preparation Tab Content -->
+        <div class="tab-content" id="gate-content">
+            <a href="javascript:void(0)" onclick="switchTab('overview')" class="back-button">
+                <i class="fas fa-arrow-left"></i> Back to Overview
+            </a>
+            
+            <div class="section-description">
+                The Graduate Aptitude Test in Engineering (GATE) is a national examination that tests the comprehensive understanding of various undergraduate subjects in engineering and science for admission into the Masters Program and Job in Public Sector Companies.
+            </div>
+            
+            <!-- Section Header with Soft Underline -->
+            <div class="section-header">
+                <h2 class="section-title">Top Coaching Classes for GATE</h2>
+                <div class="section-title-underline"></div>
+                <p class="section-subtitle">Choose between trusted online and offline coaching institutes to boost your GATE preparation</p>
+            </div>
+            
+            <!-- GATE Sub-tabs -->
+            <div class="coaching-tabs">
+                <button class="coaching-tab active" onclick="showCoachingContent('online')">Online Coaching</button>
+                <button class="coaching-tab" onclick="showCoachingContent('offline')">Offline Coaching</button>
+                <button class="coaching-tab" onclick="showCoachingContent('self')">Self Study</button>
+            </div>
+            
+            <!-- Online Coaching Content -->
+            <div class="coaching-content active" id="online-coaching">
+                <div class="coaching-grid">
+                    <!-- Physics Wallah -->
+                    <div class="coaching-card">
+                        <div class="coaching-header">
+                            <div class="coaching-logo">
+                                <i class="fas fa-graduation-cap"></i>
+                            </div>
+                            <div>
+                                <div class="coaching-name">Physics Wallah</div>
+                                <div class="coaching-type">Online Platform</div>
+                            </div>
+                        </div>
+                        <div class="coaching-details">
+                            <div class="coaching-description">
+                                Affordable and student-friendly platform for GATE preparation
+                            </div>
+                            <a href="https://www.pw.live" target="_blank" class="coaching-link">
+                                <i class="fas fa-external-link-alt"></i> Visit Website
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- Unacademy -->
+                    <div class="coaching-card">
+                        <div class="coaching-header">
+                            <div class="coaching-logo">
+                                <i class="fas fa-book-reader"></i>
+                            </div>
+                            <div>
+                                <div class="coaching-name">Unacademy</div>
+                                <div class="coaching-type">Online Platform</div>
+                            </div>
+                        </div>
+                        <div class="coaching-details">
+                            <div class="coaching-description">
+                                Live classes, test series, and GATE-specific structured courses
+                            </div>
+                            <a href="https://unacademy.com" target="_blank" class="coaching-link">
+                                <i class="fas fa-external-link-alt"></i> Visit Website
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- MADE EASY -->
+                    <div class="coaching-card">
+                        <div class="coaching-header">
+                            <div class="coaching-logo">
+                                <i class="fas fa-laptop-code"></i>
+                            </div>
+                            <div>
+                                <div class="coaching-name">MADE EASY</div>
+                                <div class="coaching-type">Online Courses</div>
+                            </div>
+                        </div>
+                        <div class="coaching-details">
+                            <div class="coaching-description">
+                                Premium online content, test series, and recorded lectures for technical streams
+                            </div>
+                            <a href="https://www.madeeasy.in" target="_blank" class="coaching-link">
+                                <i class="fas fa-external-link-alt"></i> Visit Website
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- GO Classes -->
+                    <div class="coaching-card">
+                        <div class="coaching-header">
+                            <div class="coaching-logo">
+                                <i class="fas fa-chalkboard-teacher"></i>
+                            </div>
+                            <div>
+                                <div class="coaching-name">GO Classes</div>
+                                <div class="coaching-type">Online Courses</div>
+                            </div>
+                        </div>
+                        <div class="coaching-details">
+                            <div class="coaching-description">
+                                Comprehensive digital coaching with high-quality lectures and doubt clearing
+                            </div>
+                            <a href="https://www.goclasses.in" target="_blank" class="coaching-link">
+                                <i class="fas fa-external-link-alt"></i> Visit Website
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Offline Coaching Content -->
+            <div class="coaching-content" id="offline-coaching">
+                <div class="offline-coaching-grid">
+                    <!-- EDUGATE CLASSES -->
+                    <div class="offline-coaching-card">
+                        <div class="offline-coaching-header">
+                            <div class="offline-coaching-logo">
+                                <i class="fas fa-building"></i>
+                            </div>
+                            <div class="offline-coaching-name">EDUGATE CLASSES</div>
+                        </div>
+                        <div class="offline-coaching-details">
+                            <div class="offline-coaching-info">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>316, Akshar Complex, Shivranjani Cross Rd, opp. Kalupur Commercial Bank, Shivranjani, Satellite, Ahmedabad, Gujarat 380015</span>
+                            </div>
+                            <div class="offline-coaching-info">
+                                <i class="fas fa-phone"></i>
+                                <span>097244 01492</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- I.C.E GATE Academy -->
+                    <div class="offline-coaching-card">
+                        <div class="offline-coaching-header">
+                            <div class="offline-coaching-logo">
+                                <i class="fas fa-university"></i>
+                            </div>
+                            <div class="offline-coaching-name">I.C.E GATE Academy</div>
+                        </div>
+                        <div class="offline-coaching-details">
+                            <div class="offline-coaching-info">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>Block A-312-315, 3rd Floor, Radhe Arcade, Nr SBI Bank, above UGVCL Bill Collection Centre, Kudasan, Gujarat 382421</span>
+                            </div>
+                            <div class="offline-coaching-info">
+                                <i class="fas fa-phone"></i>
+                                <span>078020 44009</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- ACE Academy -->
+                    <div class="offline-coaching-card">
+                        <div class="offline-coaching-header">
+                            <div class="offline-coaching-logo">
+                                <i class="fas fa-graduation-cap"></i>
+                            </div>
+                            <div class="offline-coaching-name">ACE Academy</div>
+                        </div>
+                        <div class="offline-coaching-details">
+                            <div class="offline-coaching-info">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>B/703, Dev Aurum, 100 Feet Anand Nagar Rd, above Reliance Digital, Deer Circle, Prahlad Nagar, Ahmedabad, Gujarat 380015</span>
+                            </div>
+                            <div class="offline-coaching-info">
+                                <i class="fas fa-phone"></i>
+                                <span>099091 03041</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Self Study Content -->
+            <div class="coaching-content" id="self-coaching">
+                <div class="strategy-steps">
+                    <div class="strategy-step">
+                        <div class="step-number">1</div>
+                        <div class="step-content">
+                            <h4>Understand the Syllabus</h4>
+                            <p>Download the official GATE syllabus for your branch and understand the topics thoroughly.</p>
+                        </div>
+                    </div>
+                    <div class="strategy-step">
+                        <div class="step-number">2</div>
+                        <div class="step-content">
+                            <h4>Gather Study Materials</h4>
+                            <p>Collect standard textbooks, previous year papers, and online resources for comprehensive preparation.</p>
+                        </div>
+                    </div>
+                    <div class="strategy-step">
+                        <div class="step-number">3</div>
+                        <div class="step-content">
+                            <h4>Create a Study Plan</h4>
+                            <p>Develop a realistic study schedule with daily, weekly, and monthly goals.</p>
+                        </div>
+                    </div>
+                    <div class="strategy-step">
+                        <div class="step-number">4</div>
+                        <div class="step-content">
+                            <h4>Practice Regularly</h4>
+                            <p>Solve previous year papers and take mock tests to assess your preparation level.</p>
+                        </div>
+                    </div>
+                    <div class="strategy-step">
+                        <div class="step-number">5</div>
+                        <div class="step-content">
+                            <h4>Join Online Communities</h4>
+                            <p>Connect with fellow GATE aspirants through forums and social media groups for knowledge sharing.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- M.Tech Preparation Tab Content -->
+        <div class="tab-content" id="mtech-content">
+            <a href="javascript:void(0)" onclick="switchTab('overview')" class="back-button">
+                <i class="fas fa-arrow-left"></i> Back to Overview
+            </a>
+            
+            <div class="section-description">
+                M.Tech (Master of Technology) is a postgraduate engineering degree that offers specialized knowledge in specific engineering disciplines. Prepare for admissions, coursework, and career opportunities.
+            </div>
+            
+            <!-- College Comparison Table Section -->
+            <div class="college-comparison-section">
+                <h2 class="section-title">Top M.Tech Colleges Based on GATE Cutoff</h2>
+                <div class="table-container">
+                    <table class="college-comparison-table">
+                        <thead>
+                            <tr>
+                                <th>Rank</th>
+                                <th>College</th>
+                                <th>Ranking</th>
+                                <th>GATE Cutoff</th>
+                                <th>Fees</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="rank">#1</td>
+                                <td class="college">
+                                    <div class="college-logo">
+                                        <img src="https://upload.wikimedia.org/wikipedia/en/thumb/1/1d/Indian_Institute_of_Technology_Bombay_Logo.svg/85px-Indian_Institute_of_Technology_Bombay_Logo.svg.png" alt="IIT Bombay">
+                                    </div>
+                                    <div class="college-info">
+                                        <div class="college-name">IIT Bombay – [IITB]</div>
+                                        <div class="college-location">Mumbai, Maharashtra</div>
+                                    </div>
+                                </td>
+                                <td class="ranking">#1 out of 160 (NIRF 2024)</td>
+                                <td class="cutoff">GATE 2024 Cutoff: 68</td>
+                                <td class="fees">₹2,30,700<br><span class="fees-note">1st Year Fees</span></td>
+                            </tr>
+                            <tr>
+                                <td class="rank">#2</td>
+                                <td class="college">
+                                    <div class="college-logo">
+                                        <img src="https://upload.wikimedia.org/wikipedia/en/thumb/f/fd/Indian_Institute_of_Technology_Delhi_Logo.svg/85px-Indian_Institute_of_Technology_Delhi_Logo.svg.png" alt="IIT Delhi">
+                                    </div>
+                                    <div class="college-info">
+                                        <div class="college-name">IIT Delhi – [IITD]</div>
+                                        <div class="college-location">New Delhi, Delhi NCR</div>
+                                    </div>
+                                </td>
+                                <td class="ranking">#1 out of 275 (THE Week 2024)</td>
+                                <td class="cutoff">GATE 2024 Cutoff: 417</td>
+                                <td class="fees">₹2,28,650<br><span class="fees-note">1st Year Fees</span></td>
+                            </tr>
+                            <tr>
+                                <td class="rank">#3</td>
+                                <td class="college">
+                                    <div class="college-logo">
+                                        <img src="https://upload.wikimedia.org/wikipedia/en/thumb/6/69/IIT_Madras_Logo.svg/85px-IIT_Madras_Logo.svg.png" alt="IIT Madras">
+                                    </div>
+                                    <div class="college-info">
+                                        <div class="college-name">IIT Madras – [IITM]</div>
+                                        <div class="college-location">Chennai, Tamil Nadu</div>
+                                    </div>
+                                </td>
+                                <td class="ranking">#1 out of 25 (Outlook 2024)</td>
+                                <td class="cutoff">GATE 2024 Cutoff: 419</td>
+                                <td class="fees">₹2,53,417<br><span class="fees-note">1st Year Fees</span></td>
+                            </tr>
+                            <tr>
+                                <td class="rank">#4</td>
+                                <td class="college">
+                                    <div class="college-logo">
+                                        <img src="https://upload.wikimedia.org/wikipedia/en/thumb/a/a3/IIT_Kanpur_Logo.svg/85px-IIT_Kanpur_Logo.svg.png" alt="IIT Kanpur">
+                                    </div>
+                                    <div class="college-info">
+                                        <div class="college-name">IIT Kanpur – [IITK]</div>
+                                        <div class="college-location">Kanpur, Uttar Pradesh</div>
+                                    </div>
+                                </td>
+                                <td class="ranking">#3 out of 284 (India Today 2024)</td>
+                                <td class="cutoff">GATE 2024 Cutoff: 252</td>
+                                <td class="fees">₹2,29,970<br><span class="fees-note">1st Year Fees</span></td>
+                            </tr>
+                            <tr>
+                                <td class="rank">#5</td>
+                                <td class="college">
+                                    <div class="college-logo">
+                                        <img src="https://upload.wikimedia.org/wikipedia/en/thumb/1/1c/IIT_Kharagpur_Logo.svg/85px-IIT_Kharagpur_Logo.svg.png" alt="IIT Kharagpur">
+                                    </div>
+                                    <div class="college-info">
+                                        <div class="college-name">IIT Kharagpur – [IITKGP]</div>
+                                        <div class="college-location">Kharagpur, West Bengal</div>
+                                    </div>
+                                </td>
+                                <td class="ranking">#4 out of 160 (NIRF 2024)</td>
+                                <td class="cutoff">GATE 2024 Cutoff: 898</td>
+                                <td class="fees">₹2,62,360<br><span class="fees-note">1st Year Fees</span></td>
+                            </tr>
+                            <tr>
+                                <td class="rank">#6</td>
+                                <td class="college">
+                                    <div class="college-logo">
+                                        <img src="https://upload.wikimedia.org/wikipedia/en/thumb/5/5b/IIT_Roorkee_logo.svg/85px-IIT_Roorkee_logo.svg.png" alt="IIT Roorkee">
+                                    </div>
+                                    <div class="college-info">
+                                        <div class="college-name">IIT Roorkee – [IITR]</div>
+                                        <div class="college-location">Roorkee, Uttarakhand</div>
+                                    </div>
+                                </td>
+                                <td class="ranking">#5 out of 275 (THE Week 2024)</td>
+                                <td class="cutoff">GATE 2024 Cutoff: 680</td>
+                                <td class="fees">₹2,30,100<br><span class="fees-note">1st Year Fees</span></td>
+                            </tr>
+                            <tr>
+                                <td class="rank">#7</td>
+                                <td class="college">
+                                    <div class="college-logo">
+                                        <img src="https://upload.wikimedia.org/wikipedia/en/thumb/1/12/IIT_Guwahati_Logo.svg/85px-IIT_Guwahati_Logo.svg.png" alt="IIT Guwahati">
+                                    </div>
+                                    <div class="college-info">
+                                        <div class="college-name">IIT Guwahati – [IITG]</div>
+                                        <div class="college-location">Guwahati, Assam</div>
+                                    </div>
+                                </td>
+                                <td class="ranking">#6 out of 160 (NIRF 2024)</td>
+                                <td class="cutoff">GATE 2024 Cutoff: 1021</td>
+                                <td class="fees">₹2,43,700<br><span class="fees-note">1st Year Fees</span></td>
+                            </tr>
+                            <tr>
+                                <td class="rank">#8</td>
+                                <td class="college">
+                                    <div class="college-logo">
+                                        <img src="https://upload.wikimedia.org/wikipedia/en/thumb/d/d3/BITS_Pilani-Logo.svg/85px-BITS_Pilani-Logo.svg.png" alt="BITS Pilani">
+                                    </div>
+                                    <div class="college-info">
+                                        <div class="college-name">BITS Pilani (Pilani Campus)</div>
+                                        <div class="college-location">Pilani, Rajasthan</div>
+                                    </div>
+                                </td>
+                                <td class="ranking">#1 out of 173 (NIRF 2024)</td>
+                                <td class="cutoff">BITSAT 2024 Cutoff: 238</td>
+                                <td class="fees">₹6,03,775<br><span class="fees-note">1st Year Fees</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="table-note">
+                    <p><i class="fas fa-info-circle"></i> Note: Cutoffs may vary based on category and branch. The data shown is for General Category students.</p>
+                </div>
+            </div>
+            
+            <section class="feature-cards">
+                <div class="cards-container">
+                    <!-- Card 1: College Filter Tool -->
+                    <div class="feature-card">
+                        <div class="card-icon" style="background-color: rgba(236, 72, 153, 0.1); color: #ec4899;">
+                            <i class="fas fa-filter"></i>
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">College Filter Tool</h3>
+                            <p class="card-subtitle">Find the best-fit college based on your criteria.</p>
+                            <p class="card-description">Use filters like course, fees, type (private/government), reviews, and location to decide smartly.</p>
+                            <a href="#" class="card-link">Coming Soon <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+        </div>
+
+        <!-- Syllabus Tab Content -->
+        <div class="tab-content" id="syllabus-content">
+            <a href="javascript:void(0)" onclick="switchTab('overview')" class="back-button">
+                <i class="fas fa-arrow-left"></i> Back to Overview
+            </a>
+            
+            <div class="section-description">
+                Download the official GATE syllabus for your branch to understand the exam pattern and prepare effectively.
+            </div>
+            
+            <div class="syllabus-grid">
+                <!-- Computer Science Syllabus -->
+                <div class="syllabus-card">
+                    <div class="syllabus-icon">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <div class="syllabus-content">
+                        <h3>Computer Science (CS)</h3>
+                        <p>Complete syllabus for GATE Computer Science and Information Technology</p>
+                        <button class="download-btn" onclick="downloadSyllabus('cs')">
+                            <i class="fas fa-download"></i> Download Syllabus
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Electronics & Communication Syllabus -->
+                <div class="syllabus-card">
+                    <div class="syllabus-icon" style="background-color: rgba(236, 72, 153, 0.1); color: #ec4899;">
+                        <i class="fas fa-microchip"></i>
+                    </div>
+                    <div class="syllabus-content">
+                        <h3>Electronics & Communication (EC)</h3>
+                        <p>Complete syllabus for GATE Electronics and Communication Engineering</p>
+                        <button class="download-btn" onclick="downloadSyllabus('EC')">
+                            <i class="fas fa-download"></i> Download Syllabus
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Electrical Engineering Syllabus -->
+                <div class="syllabus-card">
+                    <div class="syllabus-icon" style="background-color: rgba(249, 115, 22, 0.1); color: #f97316;">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <div class="syllabus-content">
+                        <h3>Electrical Engineering (EE)</h3>
+                        <p>Complete syllabus for GATE Electrical Engineering</p>
+                        <button class="download-btn" onclick="downloadSyllabus('ee')">
+                            <i class="fas fa-download"></i> Download Syllabus
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Mechanical Engineering Syllabus -->
+                <div class="syllabus-card">
+                    <div class="syllabus-icon" style="background-color: rgba(16, 185, 129, 0.1); color: #10b981;">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                    <div class="syllabus-content">
+                        <h3>Mechanical Engineering (ME)</h3>
+                        <p>Complete syllabus for GATE Mechanical Engineering</p>
+                        <button class="download-btn" onclick="downloadSyllabus('me')">
+                            <i class="fas fa-download"></i> Download Syllabus
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Download Success Message -->
+    <div id="downloadMessage" class="download-message">
+        <i class="fas fa-check-circle"></i>
+        <span>Syllabus downloaded successfully!</span>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>GradPath</h3>
+                    <p>Navigating the Next Step</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4>Quick Links</h4>
+                        <a href="index.html#vision">Our Vision</a>
+                        <a href="index.html#mission">Our Mission</a>
+                        <a href="index.html#features">Features</a>
+                        <a href="index.html#contact">Contact</a>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Resources</h4>
+                        <a href="#">Placement Guides</a>
+                        <a href="#">M.Tech Resources</a>
+                        <a href="#">Study Abroad</a>
+                        <a href="#">Career Blog</a>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Legal</h4>
+                        <a href="#">Privacy Policy</a>
+                        <a href="#">Terms of Service</a>
+                        <a href="#">Cookie Policy</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 GradPath. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Function to handle tab switching
+        function switchTab(tabId) {
+            // Hide all tab contents
+            const tabContents = document.querySelectorAll('.tab-content');
+            tabContents.forEach(content => {
+                content.classList.remove('active');
+            });
+            
+            // Remove active class from all tabs
+            const tabs = document.querySelectorAll('.nav-tab');
+            tabs.forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            // Show the selected tab content
+            document.getElementById(tabId + '-content').classList.add('active');
+            
+            // Add active class to the selected tab
+            document.querySelector(`[data-tab="${tabId}"]`).classList.add('active');
+        }
+        
+        // Function to handle coaching content switching
+        function showCoachingContent(type) {
+            // Hide all coaching contents
+            const coachingContents = document.querySelectorAll('.coaching-content');
+            coachingContents.forEach(content => {
+                content.classList.remove('active');
+            });
+            
+            // Remove active class from all coaching tabs
+            const coachingTabs = document.querySelectorAll('.coaching-tab');
+            coachingTabs.forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            // Show the selected coaching content
+            document.getElementById(type + '-coaching').classList.add('active');
+            
+            // Add active class to the selected coaching tab
+            event.target.classList.add('active');
+        }
+        
+        // Function to handle syllabus downloads
+        function downloadSyllabus(subject) {
+            // Create a link element
+            const link = document.createElement('a');
+            link.href = `Gatesyllabus/${subject}.pdf`;
+            link.download = `GATE_${subject.toUpperCase()}_Syllabus.pdf`;
+            
+            // Append to the document
+            document.body.appendChild(link);
+            
+            // Trigger click event to start download
+            link.click();
+            
+            // Clean up
+            document.body.removeChild(link);
+            
+            // Show success message
+            const message = document.getElementById('downloadMessage');
+            message.classList.add('show');
+            
+            // Hide message after 3 seconds
+            setTimeout(() => {
+                message.classList.remove('show');
+            }, 3000);
+        }
+        
+        // Initialize the page with the default tab
+        document.addEventListener('DOMContentLoaded', function() {
+            // Set the first tab as active by default
+            switchTab('overview');
+            
+            // Mobile menu toggle
+            const openMenu = document.getElementById('openMenu');
+            const closeMenu = document.getElementById('closeMenu');
+            const navLinks = document.querySelector('.nav-links');
+            
+            if (openMenu && closeMenu && navLinks) {
+                openMenu.addEventListener('click', function() {
+                    navLinks.classList.add('active');
+                });
+                
+                closeMenu.addEventListener('click', function() {
+                    navLinks.classList.remove('active');
+                });
+            }
+        });
+    </script>
+</body>
+</html>

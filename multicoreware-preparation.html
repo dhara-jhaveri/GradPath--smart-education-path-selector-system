@@ -1,0 +1,1327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>MulticoreWare Placement Preparation 2025 - GradPath</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --primary: #2563eb;
+      --primary-dark: #1d4ed8;
+      --primary-light: #dbeafe;
+      --secondary: #475569;
+      --text-dark: #1e293b;
+      --text-light: #f8fafc;
+      --bg-light: #f0f4ff;
+      --bg-white: #ffffff;
+      --shadow: 0 4px 12px rgba(0,0,0,0.1);
+      --shadow-hover: 0 8px 20px rgba(0,0,0,0.15);
+      --radius: 12px;
+      --transition: all 0.3s ease;
+      --multicoreware-blue: #0066cc;
+      --multicoreware-green: #00a651;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', 'Poppins', sans-serif;
+      background: var(--bg-light);
+      color: var(--text-dark);
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: var(--primary);
+      transition: var(--transition);
+    }
+
+    a:hover {
+      color: var(--primary-dark);
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* Header Styles */
+    .page-header {
+      background: var(--bg-white);
+      padding: 40px 0;
+      text-align: center;
+      box-shadow: var(--shadow);
+    }
+
+    .page-title {
+      color: var(--primary);
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+      animation: fadeInDown 0.8s ease;
+    }
+
+    .page-subtitle {
+      color: var(--secondary);
+      font-size: 1.2rem;
+      max-width: 800px;
+      margin: 0 auto 20px;
+      animation: fadeInUp 0.8s ease;
+    }
+
+    .header-cta {
+      display: inline-block;
+      background: var(--primary);
+      color: white;
+      padding: 12px 25px;
+      border-radius: var(--radius);
+      font-weight: 600;
+      margin-top: 15px;
+      transition: var(--transition);
+      animation: fadeInUp 1s ease;
+    }
+
+    .header-cta:hover {
+      background: var(--primary-dark);
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-hover);
+      color: white;
+    }
+
+    .header-logo {
+      max-width: 180px;
+      margin-bottom: 20px;
+      animation: fadeIn 1s ease;
+    }
+
+    /* Main Content Layout */
+    .main-content {
+      display: flex;
+      gap: 30px;
+      margin: 40px 0;
+    }
+
+    /* Sidebar Navigation */
+    .sidebar {
+      width: 280px;
+      position: sticky;
+      top: 30px;
+      height: fit-content;
+      background: var(--bg-white);
+      border-radius: var(--radius);
+      padding: 25px;
+      box-shadow: var(--shadow);
+      animation: fadeInLeft 0.8s ease;
+    }
+
+    .sidebar-nav {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .sidebar-nav a {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 15px;
+      border-radius: var(--radius);
+      color: var(--text-dark);
+      font-weight: 500;
+      transition: var(--transition);
+    }
+
+    .sidebar-nav a:hover, .sidebar-nav a.active {
+      background: var(--primary-light);
+      color: var(--primary);
+    }
+
+    .sidebar-nav i {
+      width: 20px;
+      text-align: center;
+      font-size: 1.1rem;
+      color: var(--primary);
+    }
+
+    /* Content Area */
+    .content {
+      flex: 1;
+    }
+
+    .section {
+      background: var(--bg-white);
+      border-radius: var(--radius);
+      padding: 30px;
+      margin-bottom: 30px;
+      box-shadow: var(--shadow);
+      animation: fadeInUp 0.8s ease;
+      scroll-margin-top: 30px;
+    }
+
+    .section-title {
+      color: var(--primary);
+      font-size: 1.8rem;
+      margin-bottom: 20px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid var(--primary-light);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .section-title i {
+      color: var(--primary);
+    }
+
+    /* About Section */
+    .about-content {
+      display: flex;
+      gap: 30px;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .about-image {
+      flex: 0 0 200px;
+    }
+
+    .about-image img {
+      width: 100%;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    .about-text {
+      flex: 1;
+    }
+
+    .about-text h3 {
+      color: var(--primary);
+      margin-bottom: 15px;
+    }
+
+    .about-text p {
+      margin-bottom: 15px;
+    }
+
+    .company-highlights {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 20px;
+      margin-top: 30px;
+    }
+
+    .highlight-item {
+      background: var(--primary-light);
+      padding: 20px;
+      border-radius: var(--radius);
+      transition: var(--transition);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .highlight-item:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow);
+    }
+
+    .highlight-item i {
+      font-size: 2rem;
+      color: var(--primary);
+      margin-bottom: 15px;
+    }
+
+    .highlight-item h4 {
+      margin-bottom: 10px;
+      color: var(--primary-dark);
+    }
+
+    /* Job Roles Section */
+    .roles-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 25px;
+      margin-top: 20px;
+    }
+
+    .role-card {
+      background: var(--bg-white);
+      border: 1px solid var(--primary-light);
+      border-radius: var(--radius);
+      padding: 25px;
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .role-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-hover);
+      border-color: var(--primary);
+    }
+
+    .role-card:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 5px;
+      height: 100%;
+      background: var(--primary);
+    }
+
+    .role-title {
+      font-size: 1.3rem;
+      color: var(--primary);
+      margin-bottom: 10px;
+      padding-bottom: 10px;
+      border-bottom: 1px dashed var(--primary-light);
+    }
+
+    .role-description {
+      margin-bottom: 15px;
+      color: var(--secondary);
+    }
+
+    .role-tech {
+      margin-bottom: 15px;
+    }
+
+    .role-tech h4 {
+      margin-bottom: 10px;
+      color: var(--text-dark);
+      font-size: 1rem;
+    }
+
+    .tech-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .tech-tag {
+      background: var(--primary-light);
+      color: var(--primary-dark);
+      padding: 5px 10px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 500;
+    }
+
+    .role-salary {
+      font-weight: 600;
+      color: var(--primary-dark);
+      margin-bottom: 15px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .role-salary i {
+      color: var(--primary);
+    }
+
+    /* Eligibility Section */
+    .eligibility-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+    }
+
+    .eligibility-table th, .eligibility-table td {
+      padding: 12px 15px;
+      text-align: left;
+      border-bottom: 1px solid var(--primary-light);
+    }
+
+    .eligibility-table th {
+      background: var(--primary-light);
+      color: var(--primary-dark);
+      font-weight: 600;
+    }
+
+    .eligibility-table tr:hover {
+      background: rgba(219, 234, 254, 0.3);
+    }
+
+    .eligibility-checklist {
+      margin-top: 30px;
+    }
+
+    .checklist-item {
+      display: flex;
+      gap: 15px;
+      margin-bottom: 20px;
+      padding-bottom: 20px;
+      border-bottom: 1px dashed var(--primary-light);
+    }
+
+    .checklist-item:last-child {
+      border-bottom: none;
+    }
+
+    .checklist-icon {
+      flex: 0 0 50px;
+      height: 50px;
+      background: var(--primary-light);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .checklist-icon i {
+      font-size: 1.5rem;
+      color: var(--primary);
+    }
+
+    .checklist-text {
+      flex: 1;
+    }
+
+    .checklist-text h4 {
+      color: var(--primary-dark);
+      margin-bottom: 5px;
+    }
+
+    /* Registration Process Section */
+    .process-timeline {
+      position: relative;
+      margin: 30px 0;
+      padding-left: 30px;
+    }
+
+    .process-timeline:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 15px;
+      width: 2px;
+      background: var(--primary-light);
+    }
+
+    .timeline-step {
+      position: relative;
+      margin-bottom: 30px;
+    }
+
+    .timeline-step:last-child {
+      margin-bottom: 0;
+    }
+
+    .step-number {
+      position: absolute;
+      left: -30px;
+      width: 30px;
+      height: 30px;
+      background: var(--primary);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 600;
+      z-index: 1;
+    }
+
+    .step-content {
+      background: var(--bg-white);
+      border-radius: var(--radius);
+      padding: 20px;
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+    }
+
+    .step-content:hover {
+      transform: translateX(5px);
+      box-shadow: var(--shadow-hover);
+    }
+
+    .step-title {
+      color: var(--primary);
+      margin-bottom: 10px;
+      font-size: 1.2rem;
+    }
+
+    .step-description {
+      margin-bottom: 15px;
+      color: var(--secondary);
+    }
+
+    .step-tips {
+      background: var(--primary-light);
+      padding: 15px;
+      border-radius: var(--radius);
+      margin-top: 15px;
+    }
+
+    .step-tips h5 {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--primary-dark);
+      margin-bottom: 10px;
+    }
+
+    .step-tips ul {
+      padding-left: 20px;
+    }
+
+    .step-tips li {
+      margin-bottom: 5px;
+      position: relative;
+      padding-left: 15px;
+    }
+
+    .step-tips li:before {
+      content: '•';
+      color: var(--primary);
+      position: absolute;
+      left: 0;
+    }
+
+    /* Interview Questions Section */
+    .questions-tabs {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 20px;
+      overflow-x: auto;
+      padding-bottom: 5px;
+    }
+
+    .tab-button {
+      padding: 10px 20px;
+      background: var(--bg-light);
+      border: none;
+      border-radius: var(--radius);
+      cursor: pointer;
+      font-weight: 600;
+      color: var(--secondary);
+      transition: var(--transition);
+      white-space: nowrap;
+    }
+
+    .tab-button.active {
+      background: var(--primary);
+      color: white;
+    }
+
+    .tab-content {
+      display: none;
+    }
+
+    .tab-content.active {
+      display: block;
+      animation: fadeIn 0.5s ease;
+    }
+
+    .question-accordion {
+      background: var(--bg-white);
+      border: 1px solid var(--primary-light);
+      border-radius: var(--radius);
+      margin-bottom: 15px;
+      overflow: hidden;
+    }
+
+    .question-header {
+      padding: 15px 20px;
+      background: var(--bg-light);
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: var(--transition);
+    }
+
+    .question-header:hover {
+      background: var(--primary-light);
+    }
+
+    .question-title {
+      font-weight: 600;
+      color: var(--text-dark);
+    }
+
+    .question-toggle i {
+      transition: var(--transition);
+    }
+
+    .question-accordion.active .question-toggle i {
+      transform: rotate(180deg);
+    }
+
+    .question-body {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+    }
+
+    .question-accordion.active .question-body {
+      max-height: 500px;
+    }
+
+    .question-content {
+      padding: 20px;
+      color: var(--secondary);
+    }
+
+    .question-content p {
+      margin-bottom: 10px;
+    }
+
+    .question-content ul {
+      padding-left: 20px;
+      margin-bottom: 10px;
+    }
+
+    .question-content li {
+      margin-bottom: 5px;
+      position: relative;
+      padding-left: 15px;
+    }
+
+    .question-content li:before {
+      content: '•';
+      color: var(--primary);
+      position: absolute;
+      left: 0;
+    }
+
+    /* Mock Test Button */
+    .mock-test-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      background: var(--primary);
+      color: white;
+      padding: 15px 25px;
+      border-radius: var(--radius);
+      font-weight: 600;
+      margin: 30px auto;
+      max-width: 300px;
+      text-align: center;
+      transition: var(--transition);
+      box-shadow: var(--shadow);
+    }
+
+    .mock-test-btn:hover {
+      background: var(--primary-dark);
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-hover);
+      color: white;
+    }
+
+    /* Back to Top Button */
+    .back-to-top {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      width: 50px;
+      height: 50px;
+      background: var(--primary);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      opacity: 0;
+      visibility: hidden;
+      transition: var(--transition);
+      box-shadow: var(--shadow);
+      z-index: 100;
+    }
+
+    .back-to-top.visible {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .back-to-top:hover {
+      background: var(--primary-dark);
+      transform: translateY(-5px);
+    }
+
+    /* Animations */
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeInDown {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeInLeft {
+      from {
+        opacity: 0;
+        transform: translateX(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 900px) {
+      .main-content {
+        flex-direction: column;
+      }
+
+      .sidebar {
+        width: 100%;
+        position: static;
+      }
+
+      .about-content {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .about-image {
+        margin: 0 auto;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .roles-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .company-highlights {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .page-title {
+        font-size: 2rem;
+      }
+
+      .section {
+        padding: 20px;
+      }
+
+      .questions-tabs {
+        flex-wrap: wrap;
+      }
+
+      .tab-button {
+        flex: 1;
+        min-width: 120px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="page-header">
+    <div class="container">
+      <img src="https://www.multicorewareinc.com/wp-content/themes/multicoreware-v2/images/logo.png" alt="MulticoreWare Logo" class="header-logo">
+      <h1 class="page-title">MulticoreWare Placement Preparation 2025</h1>
+      <p class="page-subtitle">Complete guide to MulticoreWare's hiring process, job roles, interview tips, and more.</p>
+      <a href="#" class="header-cta">Start Practice Test <i class="fas fa-arrow-right"></i></a>
+    </div>
+  </header>
+
+  <div class="container main-content">
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar">
+      <nav class="sidebar-nav">
+        <a href="#about-section" class="active"><i class="fas fa-info-circle"></i> About MulticoreWare</a>
+        <a href="#roles-section"><i class="fas fa-briefcase"></i> Job Roles</a>
+        <a href="#eligibility-section"><i class="fas fa-check-circle"></i> Eligibility Criteria</a>
+        <a href="#registration-section"><i class="fas fa-clipboard-list"></i> Registration Process</a>
+        <a href="#interview-section"><i class="fas fa-question-circle"></i> Interview Questions</a>
+      </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <div class="content">
+      <!-- About MulticoreWare Section -->
+      <section id="about-section" class="section">
+        <h2 class="section-title"><i class="fas fa-info-circle"></i> About MulticoreWare</h2>
+        <div class="about-content">
+          <div class="about-image">
+            <img src="https://www.multicorewareinc.com/wp-content/uploads/2023/01/mcw-office.jpg" alt="MulticoreWare Office">
+          </div>
+          <div class="about-text">
+            <h3>Company Overview</h3>
+            <p>MulticoreWare Inc. is a leading software company specializing in heterogeneous computing solutions, artificial intelligence, computer vision, and video codec technologies. The company focuses on developing high-performance software solutions that leverage multi-core processors and accelerators.</p>
+            <p>With expertise in AI/ML, video coding, computer vision, and heterogeneous computing, MulticoreWare delivers innovative solutions across various industries including automotive, healthcare, media & entertainment, and more.</p>
+          </div>
+        </div>
+        
+        <h3 style="margin-top: 30px; color: var(--primary);">Company Highlights</h3>
+        <div class="company-highlights">
+          <div class="highlight-item">
+            <i class="fas fa-calendar-alt"></i>
+            <h4>Founded</h4>
+            <p>2008</p>
+          </div>
+          <div class="highlight-item">
+            <i class="fas fa-globe"></i>
+            <h4>Global Presence</h4>
+            <p>USA, India, China, Japan</p>
+          </div>
+          <div class="highlight-item">
+            <i class="fas fa-microchip"></i>
+            <h4>Industry Focus</h4>
+            <p>AI, Computer Vision, Video Coding</p>
+          </div>
+          <div class="highlight-item">
+            <i class="fas fa-users"></i>
+            <h4>Company Culture</h4>
+            <p>Innovation-driven, Collaborative</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Job Roles Section -->
+      <section id="roles-section" class="section">
+        <h2 class="section-title"><i class="fas fa-briefcase"></i> Job Roles Offered</h2>
+        <p>MulticoreWare offers various challenging roles for fresh graduates and experienced professionals. Here are the key positions available:</p>
+        
+        <div class="roles-grid">
+          <!-- Software Engineer Role -->
+          <div class="role-card">
+            <h3 class="role-title">Software Engineer</h3>
+            <p class="role-description">Design and develop high-quality products using C/C++, optimize deep learning model performance, and test in an agile environment.</p>
+            <div class="role-tech">
+              <h4>Technologies:</h4>
+              <div class="tech-tags">
+                <span class="tech-tag">C/C++</span>
+                <span class="tech-tag">Deep Learning</span>
+                <span class="tech-tag">Optimization</span>
+                <span class="tech-tag">Agile</span>
+              </div>
+            </div>
+            <div class="role-salary">
+              <i class="fas fa-rupee-sign"></i>
+              <span>₹7.2 LPA</span>
+            </div>
+          </div>
+          
+          <!-- Research Engineer Role -->
+          <div class="role-card">
+            <h3 class="role-title">Research Engineer</h3>
+            <p class="role-description">Design and develop high-performance software solutions, optimize algorithms for multicore and parallel processing, and conduct experiments to enhance system performance.</p>
+            <div class="role-tech">
+              <h4>Technologies:</h4>
+              <div class="tech-tags">
+                <span class="tech-tag">Algorithm Design</span>
+                <span class="tech-tag">Parallel Processing</span>
+                <span class="tech-tag">Performance Analysis</span>
+                <span class="tech-tag">Research</span>
+              </div>
+            </div>
+            <div class="role-salary">
+              <i class="fas fa-rupee-sign"></i>
+              <span>₹10.2 LPA</span>
+            </div>
+          </div>
+          
+          <!-- Computer Vision Engineer Role -->
+          <div class="role-card">
+            <h3 class="role-title">Computer Vision Engineer</h3>
+            <p class="role-description">Develop and implement computer vision algorithms, work on image processing and analysis, and create solutions for real-time vision applications.</p>
+            <div class="role-tech">
+              <h4>Technologies:</h4>
+              <div class="tech-tags">
+                <span class="tech-tag">OpenCV</span>
+                <span class="tech-tag">Image Processing</span>
+                <span class="tech-tag">Machine Learning</span>
+                <span class="tech-tag">Python/C++</span>
+              </div>
+            </div>
+            <div class="role-salary">
+              <i class="fas fa-rupee-sign"></i>
+              <span>₹8.5 - 12 LPA</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Eligibility Criteria Section -->
+      <section id="eligibility-section" class="section">
+        <h2 class="section-title"><i class="fas fa-check-circle"></i> Eligibility Criteria</h2>
+        <p>Before applying to MulticoreWare, ensure you meet the following eligibility criteria:</p>
+        
+        <table class="eligibility-table">
+          <tr>
+            <th>Criteria</th>
+            <th>Requirements</th>
+          </tr>
+          <tr>
+            <td>Course Types</td>
+            <td>Only full-time courses will be considered (Part-time / Correspondence courses will not be considered)</td>
+          </tr>
+          <tr>
+            <td>College Attendance</td>
+            <td>Candidates must not have any pending attendance requirements with the college</td>
+          </tr>
+          <tr>
+            <td>Work Experience</td>
+            <td>Candidates should not have more than 1 year of experience.</td>
+          </tr>
+          <tr>
+            <td>Citizenship</td>
+            <td>Should be an Indian citizen or should carry a PIO or OCI card, if holding a passport from any other country</td>
+          </tr>
+        </table>
+
+        <div class="eligibility-checklist">
+          <h3>Additional Requirements</h3>
+          <div class="checklist-item">
+            <div class="checklist-icon">
+              <i class="fas fa-graduation-cap"></i>
+            </div>
+            <div class="checklist-text">
+              <h4>Academic Excellence</h4>
+              <p>Research Engineer: 85% or Above in 10th, 12th, and Graduation (8.5 CGPA)<br>
+              Software Engineer: 80% or Above in 10th, 12th, and Graduation (8.0 CGPA)</p>
+            </div>
+          </div>
+          <div class="checklist-item">
+            <div class="checklist-icon">
+              <i class="fas fa-code"></i>
+            </div>
+            <div class="checklist-text">
+              <h4>Technical Skills</h4>
+              <p>Strong programming skills in C/C++, knowledge of data structures and algorithms, and familiarity with software development methodologies.</p>
+            </div>
+          </div>
+          <div class="checklist-item">
+            <div class="checklist-icon">
+              <i class="fas fa-calendar-check"></i>
+            </div>
+            <div class="checklist-text">
+              <h4>Application Gap</h4>
+              <p>Rest period of at least 6 months between the previous and present applications of a candidate.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Registration Process Section -->
+      <section id="registration-section" class="section">
+        <h2 class="section-title"><i class="fas fa-clipboard-list"></i> Registration Process</h2>
+        <p>Follow these steps to register for the MulticoreWare recruitment process:</p>
+        
+        <div class="process-timeline">
+          <!-- Step 1 -->
+          <div class="timeline-step">
+            <div class="step-number">1</div>
+            <div class="step-content">
+              <h3 class="step-title">Visit MulticoreWare Career Portal</h3>
+              <p class="step-description">Navigate to the official MulticoreWare career portal, select your preferred role, and click "Apply Now".</p>
+              <div class="step-tips">
+                <h5><i class="fas fa-lightbulb"></i> Important Tips</h5>
+                <ul>
+                  <li>Alternatively, check MulticoreWare's LinkedIn page for job postings</li>
+                  <li>Ensure you have a stable internet connection during the application process</li>
+                  <li>Keep your resume updated and ready in PDF format</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- Step 2 -->
+          <div class="timeline-step">
+            <div class="step-number">2</div>
+            <div class="step-content">
+              <h3 class="step-title">Submit Job Application</h3>
+              <p class="step-description">If you're already registered, sign in and use the "Easy Apply" feature. New users will need to manually complete the application form.</p>
+              <div class="step-tips">
+                <h5><i class="fas fa-lightbulb"></i> Application Tips</h5>
+                <ul>
+                  <li>Fill out all fields accurately as modifications cannot be made after submission</li>
+                  <li>Upload a professional, well-formatted resume highlighting relevant skills</li>
+                  <li>Double-check all information before final submission</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- Step 3 -->
+          <div class="timeline-step">
+            <div class="step-number">3</div>
+            <div class="step-content">
+              <h3 class="step-title">Online Assessment</h3>
+              <p class="step-description">If your profile matches the requirements, you'll receive an invitation for online assessments to evaluate your technical skills.</p>
+              <div class="step-tips">
+                <h5><i class="fas fa-lightbulb"></i> Assessment Preparation</h5>
+                <ul>
+                  <li>Practice coding problems focusing on data structures and algorithms</li>
+                  <li>Brush up on C/C++ programming concepts</li>
+                  <li>Ensure you have a distraction-free environment for the test</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- Step 4 -->
+          <div class="timeline-step">
+            <div class="step-number">4</div>
+            <div class="step-content">
+              <h3 class="step-title">Technical Interview</h3>
+              <p class="step-description">Candidates who clear the online assessment will be invited for a technical interview to evaluate their problem-solving abilities and technical knowledge.</p>
+              <div class="step-tips">
+                <h5><i class="fas fa-lightbulb"></i> Interview Preparation</h5>
+                <ul>
+                  <li>Review fundamental concepts in your area of expertise</li>
+                  <li>Prepare to explain your previous projects in detail</li>
+                  <li>Practice whiteboard coding and system design questions</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- Step 5 -->
+          <div class="timeline-step">
+            <div class="step-number">5</div>
+            <div class="step-content">
+              <h3 class="step-title">HR Interview</h3>
+              <p class="step-description">The final round involves an HR interview to assess your cultural fit, communication skills, and career aspirations.</p>
+              <div class="step-tips">
+                <h5><i class="fas fa-lightbulb"></i> HR Interview Tips</h5>
+                <ul>
+                  <li>Research MulticoreWare's projects and company culture</li>
+                  <li>Prepare answers for common HR questions</li>
+                  <li>Have questions ready to ask the interviewer about the role and company</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- Step 6 -->
+          <div class="timeline-step">
+            <div class="step-number">6</div>
+            <div class="step-content">
+              <h3 class="step-title">Offer and Onboarding</h3>
+              <p class="step-description">Successful candidates will receive an offer letter with details about compensation, joining date, and other terms.</p>
+              <div class="step-tips">
+                <h5><i class="fas fa-lightbulb"></i> Final Steps</h5>
+                <ul>
+                  <li>Review the offer letter carefully before accepting</li>
+                  <li>Complete all pre-joining formalities on time</li>
+                  <li>Prepare necessary documents for the onboarding process</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Interview Questions Section -->
+      <section id="interview-section" class="section">
+        <h2 class="section-title"><i class="fas fa-question-circle"></i> Interview Questions</h2>
+        <p>Prepare for your MulticoreWare interview with these commonly asked questions across different categories:</p>
+        
+        <div class="questions-tabs">
+          <button class="tab-button active" data-tab="technical">Technical Round</button>
+          <button class="tab-button" data-tab="hr">HR Round</button>
+        </div>
+        
+        <!-- Technical Questions -->
+        <div class="tab-content active" id="technical-tab">
+          <div class="question-accordion">
+            <div class="question-header">
+              <div class="question-title">Reverse a singly linked list without using extra nodes.</div>
+              <div class="question-toggle"><i class="fas fa-chevron-down"></i></div>
+            </div>
+            <div class="question-body">
+              <div class="question-content">
+                <p><strong>Solution Approach:</strong></p>
+                <p>To reverse a singly linked list in-place, we need to change the direction of all the pointers:</p>
+                <pre><code>Node* reverseLinkedList(Node* head) {
+    Node* prev = nullptr;
+    Node* current = head;
+    Node* next = nullptr;
+    
+    while (current != nullptr) {
+        // Store next
+        next = current->next;
+        
+        // Reverse current node's pointer
+        current->next = prev;
+        
+        // Move pointers one position ahead
+        prev = current;
+        current = next;
+    }
+    
+    // prev is the new head
+    return prev;
+}</code></pre>
+                <p><strong>Time Complexity:</strong> O(n) where n is the number of nodes in the linked list</p>
+                <p><strong>Space Complexity:</strong> O(1) as we're only using a constant amount of extra space</p>
+              </div>
+            </div>
+          </div>
+          
+          <div class="question-accordion">
+            <div class="question-header">
+              <div class="question-title">Explain the difference between malloc and calloc.</div>
+              <div class="question-toggle"><i class="fas fa-chevron-down"></i></div>
+            </div>
+            <div class="question-body">
+              <div class="question-content">
+                <p>Both malloc and calloc are used for dynamic memory allocation in C, but they differ in several ways:</p>
+                <ul>
+                  <li><strong>Initialization:</strong> malloc doesn't initialize the allocated memory, leaving it with garbage values. calloc initializes all bits to zero.</li>
+                  <li><strong>Parameters:</strong> malloc takes one parameter (size in bytes), while calloc takes two parameters (number of elements and size of each element).</li>
+                  <li><strong>Return value:</strong> Both return a void pointer to the allocated memory, or NULL if allocation fails.</li>
+                  <li><strong>Usage:</strong> malloc is typically faster when you plan to initialize the memory yourself. calloc is preferred when you need zero-initialized memory.</li>
+                </ul>
+                <p><strong>Example:</strong></p>
+                <pre><code>// Allocating memory for 5 integers using malloc
+int* arr1 = (int*)malloc(5 * sizeof(int));
+
+// Allocating memory for 5 integers using calloc
+int* arr2 = (int*)calloc(5, sizeof(int));</code></pre>
+              </div>
+            </div>
+          </div>
+          
+          <div class="question-accordion">
+            <div class="question-header">
+              <div class="question-title">Implement a dynamic 2D array using pointer arithmetic.</div>
+              <div class="question-toggle"><i class="fas fa-chevron-down"></i></div>
+            </div>
+            <div class="question-body">
+              <div class="question-content">
+                <p>There are multiple ways to implement a dynamic 2D array in C. Here's an implementation using a single contiguous block of memory:</p>
+                <pre><code>int** create2DArray(int rows, int cols) {
+    // Allocate memory for row pointers
+    int** arr = (int**)malloc(rows * sizeof(int*));
+    if (arr == NULL) {
+        return NULL; // Memory allocation failed
+    }
+    
+    // Allocate memory for the entire 2D array in one block
+    int* data = (int*)malloc(rows * cols * sizeof(int));
+    if (data == NULL) {
+        free(arr);
+        return NULL; // Memory allocation failed
+    }
+    
+    // Set up row pointers
+    for (int i = 0; i < rows; i++) {
+        arr[i] = data + (i * cols);
+    }
+    
+    return arr;
+}
+
+// Function to free the 2D array
+void free2DArray(int** arr) {
+    // Free the data block
+    free(arr[0]);
+    // Free the row pointers
+    free(arr);
+}</code></pre>
+                <p>This implementation allows you to access elements using the familiar arr[i][j] syntax while maintaining memory efficiency.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- HR Questions -->
+        <div class="tab-content" id="hr-tab">
+          <div class="question-accordion">
+            <div class="question-header">
+              <div class="question-title">Tell me about yourself and your background.</div>
+              <div class="question-toggle"><i class="fas fa-chevron-down"></i></div>
+            </div>
+            <div class="question-body">
+              <div class="question-content">
+                <p>This is often the opening question. Keep your answer concise (1-2 minutes) and focus on your education, relevant skills, projects, and career aspirations. Structure your answer as follows:</p>
+                <ul>
+                  <li><strong>Introduction:</strong> Brief overview of your educational background.</li>
+                  <li><strong>Technical Skills:</strong> Highlight programming languages, tools, and technologies you're proficient in.</li>
+                  <li><strong>Projects:</strong> Mention 1-2 significant projects relevant to the role you're applying for.</li>
+                  <li><strong>Career Goals:</strong> Express your interest in the specific role and how it aligns with your career aspirations.</li>
+                </ul>
+                <p>Avoid personal details unrelated to your professional life.</p>
+              </div>
+            </div>
+          </div>
+          
+          <div class="question-accordion">
+            <div class="question-header">
+              <div class="question-title">Why do you want to join MulticoreWare?</div>
+              <div class="question-toggle"><i class="fas fa-chevron-down"></i></div>
+            </div>
+            <div class="question-body">
+              <div class="question-content">
+                <p>Research MulticoreWare before your interview and mention specific aspects that attract you to the company, such as:</p>
+                <ul>
+                  <li><strong>Technology Focus:</strong> "I'm passionate about MulticoreWare's work in heterogeneous computing and AI/ML, which aligns perfectly with my technical interests."</li>
+                  <li><strong>Innovation:</strong> "MulticoreWare's contributions to open-source projects like x265 demonstrate the company's commitment to innovation."</li>
+                  <li><strong>Learning Opportunities:</strong> "The challenging projects at MulticoreWare would provide me with excellent opportunities to grow my skills in high-performance computing."</li>
+                  <li><strong>Company Culture:</strong> "I appreciate MulticoreWare's collaborative work environment and focus on solving complex technical problems."</li>
+                </ul>
+                <p>Be specific about how your skills and career goals align with what MulticoreWare offers.</p>
+              </div>
+            </div>
+          </div>
+          
+          <div class="question-accordion">
+            <div class="question-header">
+              <div class="question-title">How do you handle project deadlines that you cannot meet?</div>
+              <div class="question-toggle"><i class="fas fa-chevron-down"></i></div>
+            </div>
+            <div class="question-body">
+              <div class="question-content">
+                <p>This question assesses your problem-solving skills and professionalism. A good answer should include:</p>
+                <ul>
+                  <li><strong>Early Communication:</strong> "I believe in proactively communicating potential delays as soon as I identify them, rather than waiting until the deadline."</li>
+                  <li><strong>Root Cause Analysis:</strong> "I would analyze why the deadline might be missed - whether it's due to technical challenges, scope changes, or resource constraints."</li>
+                  <li><strong>Proposed Solutions:</strong> "I would present potential solutions to my manager, such as prioritizing critical features, getting additional resources, or adjusting the scope."</li>
+                  <li><strong>Lessons Learned:</strong> "After resolving the immediate issue, I would reflect on what could be improved in future planning to avoid similar situations."</li>
+                </ul>
+                <p>Emphasize your commitment to transparency, problem-solving, and taking responsibility.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Mock Test Button -->
+      <a href="#" class="mock-test-btn">Start Practice Test <i class="fas fa-arrow-right"></i></a>
+    </div>
+  </div>
+
+  <!-- Back to Top Button -->
+  <div class="back-to-top">
+    <i class="fas fa-arrow-up"></i>
+  </div>
+
+  <!-- JavaScript -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Sidebar Navigation Active State
+      const sidebarLinks = document.querySelectorAll('.sidebar-nav a');
+      const sections = document.querySelectorAll('.section');
+      
+      // Set active link based on scroll position
+      function setActiveLink() {
+        let currentSection = '';
+        
+        sections.forEach(section => {
+          const sectionTop = section.offsetTop - 100;
+          const sectionHeight = section.offsetHeight;
+          
+          if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
+            currentSection = section.getAttribute('id');
+          }
+        });
+        
+        sidebarLinks.forEach(link => {
+          link.classList.remove('active');
+          if (link.getAttribute('href') === `#${currentSection}`) {
+            link.classList.add('active');
+          }
+        });
+      }
+      
+      window.addEventListener('scroll', setActiveLink);
+      
+      // Smooth scrolling for sidebar links
+      sidebarLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+          e.preventDefault();
+          const targetId = this.getAttribute('href');
+          const targetSection = document.querySelector(targetId);
+          
+          window.scrollTo({
+            top: targetSection.offsetTop - 50,
+            behavior: 'smooth'
+          });
+        });
+      });
+      
+      // Back to Top Button
+      const backToTopBtn = document.querySelector('.back-to-top');
+      
+      window.addEventListener('scroll', function() {
+        if (window.scrollY > 300) {
+          backToTopBtn.classList.add('visible');
+        } else {
+          backToTopBtn.classList.remove('visible');
+        }
+      });
+      
+      backToTopBtn.addEventListener('click', function() {
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+        });
+      });
+      
+      // Interview Questions Tabs
+      const tabButtons = document.querySelectorAll('.tab-button');
+      const tabContents = document.querySelectorAll('.tab-content');
+      
+      tabButtons.forEach(button => {
+        button.addEventListener('click', function() {
+          // Remove active class from all buttons and contents
+          tabButtons.forEach(btn => btn.classList.remove('active'));
+          tabContents.forEach(content => content.classList.remove('active'));
+          
+          // Add active class to clicked button and corresponding content
+          this.classList.add('active');
+          document.getElementById(`${this.dataset.tab}-tab`).classList.add('active');
+        });
+      });
+      
+      // Question Accordions
+      const questionAccordions = document.querySelectorAll('.question-accordion');
+      
+      questionAccordions.forEach(accordion => {
+        const header = accordion.querySelector('.question-header');
+        
+        header.addEventListener('click', function() {
+          accordion.classList.toggle('active');
+        });
+      });
+    });
+  </script>
+</body>
+</html>

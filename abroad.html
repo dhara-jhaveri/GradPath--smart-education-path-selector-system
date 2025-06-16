@@ -1,0 +1,981 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explore Master's Programs Abroad - GradPath</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Page-specific styles */
+        :root {
+            --primary-color: #3b82f6;
+            --primary-light: #dbeafe;
+            --primary-dark: #2563eb;
+            --secondary-color: #10b981;
+            --secondary-light: #d1fae5;
+            --text-dark: #1a2b49;
+            --text-light: #5a6987;
+            --border-color: #e2e8f0;
+            --bg-light: #f8fafc;
+            --card-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+        }
+        
+        /* Back Button Styles */
+        .back-button {
+            display: inline-flex;
+            align-items: center;
+            padding: 10px 20px;
+            background-color: white;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            color: var(--text-dark);
+            font-weight: 500;
+            text-decoration: none;
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+        }
+        
+        .back-button i {
+            margin-right: 8px;
+            font-size: 0.9rem;
+        }
+        
+        .back-button:hover {
+            background-color: var(--primary-light);
+            color: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        body {
+            font-family: 'Inter', 'Poppins', sans-serif;
+            color: var(--text-dark);
+            background-color: var(--bg-light);
+            margin: 0;
+            padding: 0;
+        }
+        
+        /* Hero Section */
+        .hero-section {
+            background: linear-gradient(135deg, #f0f7ff 0%, #e6f0ff 100%);
+            padding: 80px 0 60px;
+            text-align: center;
+        }
+        
+        .hero-section h1 {
+            font-size: 2.5rem;
+            color: var(--text-dark);
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+        
+        .hero-section p {
+            font-size: 1.2rem;
+            color: var(--text-light);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        /* Section Containers */
+        .section-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+        
+        .section-title {
+            font-size: 2rem;
+            color: var(--text-dark);
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        
+        .section-description {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 40px;
+        }
+        
+        /* Section Header with Underline */
+        .section-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .section-title-underline {
+            height: 3px;
+            width: 80px;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            margin: 15px auto 20px;
+            border-radius: 3px;
+        }
+        
+        .section-subtitle {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        /* Main Content Layout */
+        .main-content-layout {
+            display: flex;
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        /* Filter Sidebar */
+        .filter-sidebar {
+            width: 300px;
+            flex-shrink: 0;
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: var(--card-shadow);
+            padding: 25px;
+            position: sticky;
+            top: 20px;
+            max-height: calc(100vh - 40px);
+            overflow-y: auto;
+        }
+        
+        .filter-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: var(--text-dark);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .filter-title i {
+            font-size: 1rem;
+            color: var(--primary-color);
+        }
+        
+        .filter-group {
+            margin-bottom: 20px;
+        }
+        
+        .filter-label {
+            display: block;
+            font-weight: 500;
+            margin-bottom: 8px;
+            color: var(--text-dark);
+        }
+        
+        .filter-select, .filter-input {
+            width: 100%;
+            padding: 10px 12px;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            font-family: inherit;
+            font-size: 0.95rem;
+            color: var(--text-dark);
+            background-color: white;
+            transition: all 0.3s ease;
+        }
+        
+        .filter-select:focus, .filter-input:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+        }
+        
+        /* Range Slider */
+        .range-slider {
+            width: 100%;
+            margin: 10px 0;
+        }
+        
+        .range-values {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 8px;
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+        
+        /* Checkbox Styles */
+        .checkbox-group {
+            margin-top: 10px;
+        }
+        
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        
+        .checkbox-item input[type="checkbox"] {
+            margin-right: 10px;
+            accent-color: var(--primary-color);
+        }
+        
+        .checkbox-label {
+            font-size: 0.95rem;
+            color: var(--text-dark);
+        }
+        
+        /* Filter Buttons */
+        .filter-buttons {
+            display: flex;
+            gap: 10px;
+            margin-top: 30px;
+        }
+        
+        .filter-button {
+            flex: 1;
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: inherit;
+            font-size: 0.95rem;
+        }
+        
+        .apply-filter {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        .apply-filter:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(59, 130, 246, 0.2);
+        }
+        
+        .reset-filter {
+            background-color: white;
+            color: var(--text-dark);
+            border: 1px solid var(--border-color);
+        }
+        
+        .reset-filter:hover {
+            background-color: var(--bg-light);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+        }
+        
+        /* Mobile Filter Toggle */
+        .mobile-filter-toggle {
+            display: none;
+            width: 100%;
+            padding: 12px;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-weight: 500;
+            margin-bottom: 20px;
+            cursor: pointer;
+            font-family: inherit;
+            font-size: 1rem;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .mobile-filter-toggle i {
+            margin-right: 8px;
+        }
+        
+        /* Programs Content */
+        .programs-content {
+            flex: 1;
+        }
+        
+        .content-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .results-count {
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: var(--text-dark);
+        }
+        
+        .sort-dropdown {
+            display: flex;
+            align-items: center;
+        }
+        
+        .sort-label {
+            margin-right: 10px;
+            font-size: 0.95rem;
+            color: var(--text-light);
+        }
+        
+        .sort-select {
+            padding: 8px 12px;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            font-family: inherit;
+            font-size: 0.95rem;
+            color: var(--text-dark);
+            background-color: white;
+        }
+        
+        /* Program Cards */
+        .program-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+        
+        .program-card {
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: var(--card-shadow);
+            overflow: hidden;
+            transition: all 0.3s ease;
+            animation: fadeInUp 0.6s ease forwards;
+            opacity: 0;
+            transform: translateY(30px);
+            border-top: 4px solid var(--primary-color);
+        }
+        
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .program-card:nth-child(1) { animation-delay: 0.1s; }
+        .program-card:nth-child(2) { animation-delay: 0.2s; }
+        .program-card:nth-child(3) { animation-delay: 0.3s; }
+        .program-card:nth-child(4) { animation-delay: 0.4s; }
+        .program-card:nth-child(5) { animation-delay: 0.5s; }
+        .program-card:nth-child(6) { animation-delay: 0.6s; }
+        .program-card:nth-child(7) { animation-delay: 0.7s; }
+        .program-card:nth-child(8) { animation-delay: 0.8s; }
+        
+        .program-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(59, 130, 246, 0.1);
+        }
+        
+        .program-header {
+            padding: 20px;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .program-name {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 5px;
+            color: var(--text-dark);
+        }
+        
+        .university-name {
+            font-size: 1rem;
+            color: var(--primary-color);
+            font-weight: 500;
+            margin-bottom: 10px;
+        }
+        
+        .program-location {
+            display: flex;
+            align-items: center;
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+        
+        .program-location i {
+            margin-right: 5px;
+            color: var(--primary-color);
+        }
+        
+        .program-details {
+            padding: 20px;
+        }
+        
+        .program-info {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .program-info-item {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .info-label {
+            font-size: 0.85rem;
+            color: var(--text-light);
+            margin-bottom: 5px;
+        }
+        
+        .info-value {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+        
+        .program-link {
+            display: inline-block;
+            width: 100%;
+            padding: 12px 0;
+            background-color: var(--primary-color);
+            color: white;
+            text-align: center;
+            border-radius: 8px;
+            font-weight: 500;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .program-link:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(59, 130, 246, 0.2);
+        }
+        
+        /* University Cards */
+        .university-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+        }
+        
+        .university-card {
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: var(--card-shadow);
+            overflow: hidden;
+            transition: all 0.3s ease;
+            animation: fadeInUp 0.6s ease forwards;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        
+        .university-card:nth-child(1) { animation-delay: 0.1s; }
+        .university-card:nth-child(2) { animation-delay: 0.2s; }
+        .university-card:nth-child(3) { animation-delay: 0.3s; }
+        .university-card:nth-child(4) { animation-delay: 0.4s; }
+        .university-card:nth-child(5) { animation-delay: 0.5s; }
+        .university-card:nth-child(6) { animation-delay: 0.6s; }
+        .university-card:nth-child(7) { animation-delay: 0.7s; }
+        .university-card:nth-child(8) { animation-delay: 0.8s; }
+        .university-card:nth-child(9) { animation-delay: 0.9s; }
+        .university-card:nth-child(10) { animation-delay: 1s; }
+        
+        .university-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(59, 130, 246, 0.1);
+        }
+        
+        .university-header {
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .university-logo {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background-color: var(--primary-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        
+        .university-logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+        
+        .university-details {
+            padding: 20px;
+        }
+        
+        .university-info {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .university-info-item {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .university-link {
+            display: inline-block;
+            width: 100%;
+            padding: 12px 0;
+            background-color: var(--primary-color);
+            color: white;
+            text-align: center;
+            border-radius: 8px;
+            font-weight: 500;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .university-link:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(59, 130, 246, 0.2);
+        }
+        
+        /* Pagination */
+        .pagination {
+            display: flex;
+            justify-content: center;
+            margin-top: 40px;
+        }
+        
+        .pagination-item {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+            margin: 0 5px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .pagination-item.active {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        .pagination-item:not(.active) {
+            background-color: white;
+            color: var(--text-dark);
+            border: 1px solid var(--border-color);
+        }
+        
+        .pagination-item:not(.active):hover {
+            background-color: var(--primary-light);
+            color: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <h1>Explore Master's Programs Abroad</h1>
+            <p>Find the perfect graduate program at top universities around the world</p>
+        </div>
+    </section>
+    
+    <!-- Programs Section -->
+    <section class="section-container">
+        <a href="#" class="back-button"><i class="fas fa-arrow-left"></i> Back to Home</a>
+        
+        <div class="section-header">
+            <h2 class="section-title">Master's Programs Worldwide</h2>
+            <div class="section-title-underline"></div>
+            <p class="section-subtitle">Browse through a variety of graduate programs offered by prestigious universities</p>
+        </div>
+        
+        <!-- Mobile Filter Toggle Button -->
+        <button id="mobileFilterToggle" class="mobile-filter-toggle">
+            <i class="fas fa-filter"></i> Show Filters
+        </button>
+        
+        <div class="main-content-layout">
+            <!-- Filter Sidebar -->
+            <div id="filterSidebar" class="filter-sidebar">
+                <div class="filter-title">
+                    Filter Programs <i class="fas fa-sliders-h"></i>
+                </div>
+                
+                <!-- Country Filter -->
+                <div class="filter-group">
+                    <label class="filter-label">Country</label>
+                    <select class="filter-select">
+                        <option value="">All Countries</option>
+                        <option value="us">United States</option>
+                        <option value="uk">United Kingdom</option>
+                        <option value="ca">Canada</option>
+                        <option value="au">Australia</option>
+                        <option value="de">Germany</option>
+                        <option value="nl">Netherlands</option>
+                        <option value="ch">Switzerland</option>
+                        <option value="sg">Singapore</option>
+                        <option value="jp">Japan</option>
+                        <option value="za">South Africa</option>
+                    </select>
+                </div>
+                
+                <!-- Field of Study Filter -->
+                <div class="filter-group">
+                    <label class="filter-label">Field of Study</label>
+                    <select class="filter-select">
+                        <option value="">All Fields</option>
+                        <option value="cs">Computer Science</option>
+                        <option value="eng">Engineering</option>
+                        <option value="bus">Business</option>
+                        <option value="med">Medicine</option>
+                        <option value="arts">Arts & Humanities</option>
+                        <option value="sci">Natural Sciences</option>
+                        <option value="soc">Social Sciences</option>
+                        <option value="law">Law</option>
+                    </select>
+                </div>
+                
+                <!-- Tuition Range Filter -->
+                <div class="filter-group">
+                    <label class="filter-label">Max Annual Tuition</label>
+                    <input type="range" id="tuitionRange" class="range-slider" min="0" max="100" value="50">
+                    <div class="range-values">
+                        <span>$0</span>
+                        <span id="tuitionValue">$50k</span>
+                        <span>$100k</span>
+                    </div>
+                </div>
+                
+                <!-- Duration Filter -->
+                <div class="filter-group">
+                    <label class="filter-label">Program Duration</label>
+                    <div class="checkbox-group">
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="duration1" checked>
+                            <label for="duration1" class="checkbox-label">1 Year</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="duration2" checked>
+                            <label for="duration2" class="checkbox-label">2 Years</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="duration3">
+                            <label for="duration3" class="checkbox-label">3+ Years</label>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Language Filter -->
+                <div class="filter-group">
+                    <label class="filter-label">Language of Instruction</label>
+                    <div class="checkbox-group">
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="langEn" checked>
+                            <label for="langEn" class="checkbox-label">English</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="langDe">
+                            <label for="langDe" class="checkbox-label">German</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="langFr">
+                            <label for="langFr" class="checkbox-label">French</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="langSp">
+                            <label for="langSp" class="checkbox-label">Spanish</label>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Filter Buttons -->
+                <div class="filter-buttons">
+                    <button class="filter-button apply-filter">Apply Filters</button>
+                    <button class="filter-button reset-filter">Reset</button>
+                </div>
+            </div>
+            
+            <!-- Programs Content -->
+            <div class="programs-content">
+                <div class="content-header">
+                    <div class="results-count">Showing 8 programs</div>
+                    <div class="sort-dropdown">
+                        <span class="sort-label">Sort by:</span>
+                        <select class="sort-select">
+                            <option value="relevance">Relevance</option>
+                            <option value="tuition-low">Tuition: Low to High</option>
+                            <option value="tuition-high">Tuition: High to Low</option>
+                            <option value="duration">Duration: Shortest first</option>
+                            <option value="ranking">University Ranking</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="program-grid">
+                    <!-- Program Card 1 -->
+                    <div class="program-card">
+                        <div class="program-header">
+                            <div class="program-name">MSc in Computer Science</div>
+                            <div class="university-name">Technical University of Munich</div>
+                            <div class="program-location"><i class="fas fa-map-marker-alt"></i> Munich, Germany</div>
+                        </div>
+                        <div class="program-details">
+                            <div class="program-info">
+                                <div class="program-info-item">
+                                    <div class="info-label">Tuition</div>
+                                    <div class="info-value">€ 0/year</div>
+                                </div>
+                                <div class="program-info-item">
+                                    <div class="info-label">Duration</div>
+                                    <div class="info-value">2 years</div>
+                                </div>
+                            </div>
+                            <a href="https://www.tum.de/en/studies/degree-programs/detail/computational-science-and-engineering-cse-master-of-science-msc/" target="_blank" class="program-link">View Program</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Program Card 2 -->
+                    <div class="program-card">
+                        <div class="program-header">
+                            <div class="program-name">Master of Data Science</div>
+                            <div class="university-name">University of Melbourne</div>
+                            <div class="program-location"><i class="fas fa-map-marker-alt"></i> Melbourne, Australia</div>
+                        </div>
+                        <div class="program-details">
+                            <div class="program-info">
+                                <div class="program-info-item">
+                                    <div class="info-label">Tuition</div>
+                                    <div class="info-value">AUD 35,000/year</div>
+                                </div>
+                                <div class="program-info-item">
+                                    <div class="info-label">Duration</div>
+                                    <div class="info-value">2 years</div>
+                                </div>
+                            </div>
+                            <a href="https://study.unimelb.edu.au/find/courses/graduate/master-of-data-science/" target="_blank" class="program-link">View Program</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Program Card 3 -->
+                    <div class="program-card">
+                        <div class="program-header">
+                            <div class="program-name">MSc in Artificial Intelligence</div>
+                            <div class="university-name">University of Amsterdam</div>
+                            <div class="program-location"><i class="fas fa-map-marker-alt"></i> Amsterdam, Netherlands</div>
+                        </div>
+                        <div class="program-details">
+                            <div class="program-info">
+                                <div class="program-info-item">
+                                    <div class="info-label">Tuition</div>
+                                    <div class="info-value">€15,000/year</div>
+                                </div>
+                                <div class="program-info-item">
+                                    <div class="info-label">Duration</div>
+                                    <div class="info-value">2 years</div>
+                                </div>
+                            </div>
+                            <a href="https://www.uva.nl/en/programmes/masters/artificial-intelligence/artificial-intelligence.html" target="_blank" class="program-link">View Program</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Program Card 4 -->
+                    <div class="program-card">
+                        <div class="program-header">
+                            <div class="program-name">MSc in Mechanical Engineering</div>
+                            <div class="university-name">ETH Zurich</div>
+                            <div class="program-location"><i class="fas fa-map-marker-alt"></i> Zurich, Switzerland</div>
+                        </div>
+                        <div class="program-details">
+                            <div class="program-info">
+                                <div class="program-info-item">
+                                    <div class="info-label">Tuition</div>
+                                    <div class="info-value">CHF 1,200/year</div>
+                                </div>
+                                <div class="program-info-item">
+                                    <div class="info-label">Duration</div>
+                                    <div class="info-value">2 years</div>
+                                </div>
+                            </div>
+                            <a href="https://ethz.ch/en/studies/master/degree-programmes/engineering-sciences/mechanical-engineering.html" target="_blank" class="program-link">View Program</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Program Card 5 -->
+                    <div class="program-card">
+                        <div class="program-header">
+                            <div class="program-name">Master of Business Administration (MBA)</div>
+                            <div class="university-name">Harvard University</div>
+                            <div class="program-location"><i class="fas fa-map-marker-alt"></i> Cambridge, USA</div>
+                        </div>
+                </div>
+                <div class="university-details">
+                    <a href="https://www.harvard.edu/" target="_blank" class="university-link">View University</a>
+                </div>
+            </div>
+            
+            <!-- University 6 -->
+            <div class="university-card">
+                <div class="university-header">
+                    <div class="university-logo">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Imperial_College_London_crest.svg/1200px-Imperial_College_London_crest.svg.png" alt="Imperial Logo">
+                    </div>
+                    <div>
+                        <div class="university-name">Imperial College London</div>
+                        <div class="university-location"><i class="fas fa-map-marker-alt"></i> London, UK</div>
+                    </div>
+                </div>
+                <div class="university-details">
+                    <a href="https://www.imperial.ac.uk/" target="_blank" class="university-link">View University</a>
+                </div>
+            </div>
+            
+            <!-- University 7 -->
+            <div class="university-card">
+                <div class="university-header">
+                    <div class="university-logo">
+                        <img src="https://upload.wikimedia.org/wikipedia/en/thumb/b/b9/NUS_coat_of_arms.svg/1200px-NUS_coat_of_arms.svg.png" alt="NUS Logo">
+                    </div>
+                    <div>
+                        <div class="university-name">National University of Singapore</div>
+                        <div class="university-location"><i class="fas fa-map-marker-alt"></i> Singapore</div>
+                    </div>
+                </div>
+                <div class="university-details">
+                    <a href="https://www.nus.edu.sg/" target="_blank" class="university-link">View University</a>
+                </div>
+            </div>
+            
+            <!-- University 8 -->
+            <div class="university-card">
+                <div class="university-header">
+                    <div class="university-logo">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Coat_of_arms_of_the_University_of_British_Columbia.svg/1200px-Coat_of_arms_of_the_University_of_British_Columbia.svg.png" alt="UBC Logo">
+                    </div>
+                    <div>
+                        <div class="university-name">University of British Columbia</div>
+                        <div class="university-location"><i class="fas fa-map-marker-alt"></i> Vancouver, Canada</div>
+                    </div>
+                </div>
+                <div class="university-details">
+                    <a href="https://www.ubc.ca/" target="_blank" class="university-link">View University</a>
+                </div>
+            </div>
+            
+            <!-- University 9 -->
+            <div class="university-card">
+                <div class="university-header">
+                    <div class="university-logo">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/University_of_Tokyo_logo.svg/1200px-University_of_Tokyo_logo.svg.png" alt="UTokyo Logo">
+                    </div>
+                    <div>
+                        <div class="university-name">University of Tokyo</div>
+                        <div class="university-location"><i class="fas fa-map-marker-alt"></i> Tokyo, Japan</div>
+                    </div>
+                </div>
+                <div class="university-details">
+                    <a href="https://www.u-tokyo.ac.jp/en/" target="_blank" class="university-link">View University</a>
+                </div>
+            </div>
+            
+            <!-- University 10 -->
+            <div class="university-card">
+                <div class="university-header">
+                    <div class="university-logo">
+                        <img src="https://upload.wikimedia.org/wikipedia/en/thumb/f/f1/University_of_Cape_Town_logo.svg/1200px-University_of_Cape_Town_logo.svg.png" alt="UCT Logo">
+                    </div>
+                    <div>
+                        <div class="university-name">University of Cape Town</div>
+                        <div class="university-location"><i class="fas fa-map-marker-alt"></i> Cape Town, South Africa</div>
+                    </div>
+                </div>
+                <div class="university-details">
+                    <a href="https://www.uct.ac.za/" target="_blank" class="university-link">View University</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- JavaScript for Interactive Features -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Mobile Filter Toggle
+            const mobileFilterToggle = document.getElementById('mobileFilterToggle');
+            const filterSidebar = document.getElementById('filterSidebar');
+            
+            if (mobileFilterToggle && filterSidebar) {
+                mobileFilterToggle.addEventListener('click', function() {
+                    filterSidebar.classList.toggle('active');
+                    
+                    if (filterSidebar.classList.contains('active')) {
+                        mobileFilterToggle.innerHTML = '<i class="fas fa-times"></i> Hide Filters';
+                    } else {
+                        mobileFilterToggle.innerHTML = '<i class="fas fa-filter"></i> Show Filters';
+                    }
+                });
+            }
+            
+            // Range Slider Functionality
+            const tuitionRange = document.getElementById('tuitionRange');
+            const tuitionValue = document.getElementById('tuitionValue');
+            
+            if (tuitionRange && tuitionValue) {
+                tuitionRange.addEventListener('input', function() {
+                    tuitionValue.textContent = '$' + tuitionRange.value + 'k';
+                });
+            }
+            
+            // Pagination Functionality
+            const paginationItems = document.querySelectorAll('.pagination-item');
+            
+            paginationItems.forEach(item => {
+                item.addEventListener('click', function() {
+                    paginationItems.forEach(i => i.classList.remove('active'));
+                    this.classList.add('active');
+                    // In a real implementation, this would load the next page of results
+                });
+            });
+            
+            // Filter Apply and Reset Buttons
+            const applyFilter = document.querySelector('.apply-filter');
+            const resetFilter = document.querySelector('.reset-filter');
+            
+            if (applyFilter) {
+                applyFilter.addEventListener('click', function() {
+                    // In a real implementation, this would apply the selected filters
+                    alert('Filters applied! This would filter the programs in a real implementation.');
+                });
+            }
+            
+            if (resetFilter) {
+                resetFilter.addEventListener('click', function() {
+                    // Reset all filter inputs
+                    const filterSelects = document.querySelectorAll('.filter-select');
+                    const filterCheckboxes = document.querySelectorAll('.checkbox-item input[type="checkbox"]');
+                    
+                    filterSelects.forEach(select => {
+                        select.selectedIndex = 0;
+                    });
+                    
+                    filterCheckboxes.forEach(checkbox => {
+                        checkbox.checked = false;
+                    });
+                    
+                    if (tuitionRange) {
+                        tuitionRange.value = tuitionRange.getAttribute('max') / 2;
+                        if (tuitionValue) {
+                            tuitionValue.textContent = '$' + tuitionRange.value + 'k';
+                        }
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>

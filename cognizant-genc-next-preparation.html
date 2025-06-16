@@ -1,0 +1,1307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Cognizant GenC Next Placement Preparation 2025 - GradPath</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --primary: #2563eb;
+      --primary-dark: #1d4ed8;
+      --primary-light: #dbeafe;
+      --secondary: #475569;
+      --text-dark: #1e293b;
+      --text-light: #f8fafc;
+      --bg-light: #f0f4ff;
+      --bg-white: #ffffff;
+      --shadow: 0 4px 12px rgba(0,0,0,0.1);
+      --shadow-hover: 0 8px 20px rgba(0,0,0,0.15);
+      --radius: 12px;
+      --transition: all 0.3s ease;
+      --cognizant-blue: #0033A1;
+      --cognizant-green: #86BC25;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', 'Poppins', sans-serif;
+      background: var(--bg-light);
+      color: var(--text-dark);
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: var(--primary);
+      transition: var(--transition);
+    }
+
+    a:hover {
+      color: var(--primary-dark);
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* Header Styles */
+    .page-header {
+      background: var(--bg-white);
+      padding: 40px 0;
+      text-align: center;
+      box-shadow: var(--shadow);
+    }
+
+    .page-title {
+      color: var(--primary);
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+      animation: fadeInDown 0.8s ease;
+    }
+
+    .page-subtitle {
+      color: var(--secondary);
+      font-size: 1.2rem;
+      max-width: 800px;
+      margin: 0 auto;
+      animation: fadeInUp 0.8s ease;
+    }
+
+    /* Main Content Layout */
+    .main-content {
+      display: flex;
+      gap: 30px;
+      margin: 40px 0;
+    }
+
+    /* Sidebar Navigation */
+    .sidebar {
+      width: 280px;
+      position: sticky;
+      top: 30px;
+      height: fit-content;
+      background: var(--bg-white);
+      border-radius: var(--radius);
+      padding: 25px;
+      box-shadow: var(--shadow);
+      animation: fadeInLeft 0.8s ease;
+    }
+
+    .sidebar-nav {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .sidebar-nav a {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 15px;
+      border-radius: var(--radius);
+      color: var(--text-dark);
+      font-weight: 500;
+      transition: var(--transition);
+    }
+
+    .sidebar-nav a:hover, .sidebar-nav a.active {
+      background: var(--primary-light);
+      color: var(--primary);
+    }
+
+    .sidebar-nav i {
+      width: 20px;
+      text-align: center;
+      font-size: 1.1rem;
+      color: var(--primary);
+    }
+
+    /* Content Area */
+    .content {
+      flex: 1;
+    }
+
+    .section {
+      background: var(--bg-white);
+      border-radius: var(--radius);
+      padding: 30px;
+      margin-bottom: 30px;
+      box-shadow: var(--shadow);
+      animation: fadeInUp 0.8s ease;
+      scroll-margin-top: 30px;
+    }
+
+    .section-title {
+      color: var(--primary);
+      font-size: 1.8rem;
+      margin-bottom: 20px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid var(--primary-light);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .section-title i {
+      color: var(--primary);
+    }
+
+    /* About Section */
+    .about-content {
+      display: flex;
+      gap: 30px;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .about-image {
+      flex: 0 0 200px;
+    }
+
+    .about-image img {
+      width: 100%;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    .about-text {
+      flex: 1;
+    }
+
+    .about-text p {
+      margin-bottom: 15px;
+    }
+
+    .company-stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      margin-top: 30px;
+    }
+
+    .stat-card {
+      background: var(--primary-light);
+      padding: 20px;
+      border-radius: var(--radius);
+      text-align: center;
+      transition: var(--transition);
+    }
+
+    .stat-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow);
+    }
+
+    .stat-number {
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 5px;
+    }
+
+    .stat-label {
+      color: var(--secondary);
+      font-size: 0.9rem;
+    }
+
+    /* Job Roles Section */
+    .roles-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 25px;
+    }
+
+    .role-card {
+      background: var(--bg-white);
+      border: 1px solid #eee;
+      border-radius: var(--radius);
+      padding: 25px;
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .role-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-hover);
+    }
+
+    .role-card:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 5px;
+      height: 100%;
+      background: var(--primary);
+    }
+
+    .role-icon {
+      font-size: 2.5rem;
+      color: var(--primary);
+      margin-bottom: 15px;
+    }
+
+    .role-title {
+      font-size: 1.3rem;
+      color: var(--text-dark);
+      margin-bottom: 10px;
+    }
+
+    .role-salary {
+      display: inline-block;
+      background: var(--primary-light);
+      color: var(--primary);
+      padding: 5px 10px;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin-bottom: 15px;
+    }
+
+    .role-description {
+      color: var(--secondary);
+      margin-bottom: 15px;
+      font-size: 0.95rem;
+    }
+
+    .role-requirements {
+      margin-top: 15px;
+    }
+
+    .role-requirements h4 {
+      font-size: 1rem;
+      margin-bottom: 10px;
+      color: var(--text-dark);
+    }
+
+    .role-requirements ul {
+      padding-left: 20px;
+      list-style-type: disc;
+    }
+
+    .role-requirements li {
+      margin-bottom: 5px;
+      font-size: 0.9rem;
+      color: var(--secondary);
+    }
+
+    /* Eligibility Section */
+    .eligibility-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 20px;
+    }
+
+    .eligibility-table th, .eligibility-table td {
+      padding: 12px 15px;
+      text-align: left;
+      border-bottom: 1px solid #eee;
+    }
+
+    .eligibility-table th {
+      background: var(--primary-light);
+      color: var(--primary);
+      font-weight: 600;
+    }
+
+    .eligibility-table tr:hover {
+      background: #f9f9f9;
+    }
+
+    .eligibility-checklist {
+      margin-top: 30px;
+    }
+
+    .checklist-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 15px;
+      margin-bottom: 15px;
+      padding-bottom: 15px;
+      border-bottom: 1px solid #eee;
+    }
+
+    .checklist-item:last-child {
+      border-bottom: none;
+    }
+
+    .checklist-icon {
+      flex: 0 0 30px;
+      height: 30px;
+      background: var(--primary-light);
+      color: var(--primary);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .checklist-text {
+      flex: 1;
+    }
+
+    .checklist-text h4 {
+      font-size: 1.1rem;
+      margin-bottom: 5px;
+      color: var(--text-dark);
+    }
+
+    .checklist-text p {
+      color: var(--secondary);
+      font-size: 0.95rem;
+    }
+
+    /* Registration Process Section */
+    .process-timeline {
+      position: relative;
+      margin: 30px 0;
+      padding-left: 50px;
+    }
+
+    .process-timeline:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 20px;
+      height: 100%;
+      width: 2px;
+      background: var(--primary-light);
+    }
+
+    .timeline-step {
+      position: relative;
+      margin-bottom: 30px;
+    }
+
+    .timeline-step:last-child {
+      margin-bottom: 0;
+    }
+
+    .step-number {
+      position: absolute;
+      left: -50px;
+      top: 0;
+      width: 40px;
+      height: 40px;
+      background: var(--primary);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 600;
+      z-index: 1;
+    }
+
+    .step-content {
+      background: var(--bg-light);
+      padding: 20px;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    .step-title {
+      font-size: 1.2rem;
+      margin-bottom: 10px;
+      color: var(--primary);
+    }
+
+    .step-description {
+      color: var(--secondary);
+      font-size: 0.95rem;
+    }
+
+    .step-tips {
+      margin-top: 15px;
+      padding-top: 15px;
+      border-top: 1px dashed #ddd;
+    }
+
+    .step-tips h5 {
+      font-size: 1rem;
+      margin-bottom: 10px;
+      color: var(--text-dark);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .step-tips h5 i {
+      color: var(--primary);
+    }
+
+    .step-tips ul {
+      padding-left: 25px;
+      list-style-type: disc;
+    }
+
+    .step-tips li {
+      margin-bottom: 5px;
+      font-size: 0.9rem;
+      color: var(--secondary);
+    }
+
+    /* Interview Questions Section */
+    .questions-tabs {
+      display: flex;
+      border-bottom: 1px solid #eee;
+      margin-bottom: 25px;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+
+    .questions-tabs::-webkit-scrollbar {
+      display: none;
+    }
+
+    .tab-button {
+      padding: 12px 20px;
+      background: none;
+      border: none;
+      font-family: inherit;
+      font-size: 1rem;
+      color: var(--secondary);
+      cursor: pointer;
+      white-space: nowrap;
+      border-bottom: 3px solid transparent;
+      transition: var(--transition);
+    }
+
+    .tab-button.active {
+      color: var(--primary);
+      border-bottom-color: var(--primary);
+      font-weight: 600;
+    }
+
+    .tab-content {
+      display: none;
+    }
+
+    .tab-content.active {
+      display: block;
+      animation: fadeIn 0.5s ease;
+    }
+
+    .question-accordion {
+      margin-bottom: 15px;
+      border: 1px solid #eee;
+      border-radius: var(--radius);
+      overflow: hidden;
+    }
+
+    .question-header {
+      padding: 15px 20px;
+      background: var(--bg-light);
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: var(--transition);
+    }
+
+    .question-header:hover {
+      background: var(--primary-light);
+    }
+
+    .question-title {
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: var(--text-dark);
+    }
+
+    .question-toggle {
+      color: var(--primary);
+      transition: var(--transition);
+    }
+
+    .question-accordion.active .question-toggle {
+      transform: rotate(180deg);
+    }
+
+    .question-body {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+    }
+
+    .question-accordion.active .question-body {
+      max-height: 500px;
+    }
+
+    .question-content {
+      padding: 20px;
+      background: white;
+      color: var(--secondary);
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+    
+    /* Back to Top Button */
+    .back-to-top {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      width: 50px;
+      height: 50px;
+      background: var(--primary);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: var(--shadow);
+      opacity: 0;
+      visibility: hidden;
+      transition: var(--transition);
+      z-index: 100;
+    }
+
+    .back-to-top.visible {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .back-to-top:hover {
+      background: var(--primary-dark);
+      transform: translateY(-5px);
+    }
+
+    /* Mock Test Button */
+    .mock-test-btn {
+      display: block;
+      width: 100%;
+      padding: 15px 20px;
+      background: var(--primary);
+      color: white;
+      text-align: center;
+      border-radius: var(--radius);
+      font-weight: 600;
+      margin-top: 30px;
+      transition: var(--transition);
+      box-shadow: var(--shadow);
+    }
+
+    .mock-test-btn:hover {
+      background: var(--primary-dark);
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-hover);
+    }
+
+    /* Animations */
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeInDown {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeInLeft {
+      from {
+        opacity: 0;
+        transform: translateX(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 992px) {
+      .main-content {
+        flex-direction: column;
+      }
+
+      .sidebar {
+        width: 100%;
+        position: static;
+        margin-bottom: 30px;
+      }
+
+      .sidebar-nav {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+
+      .sidebar-nav a {
+        flex: 1 1 auto;
+        min-width: 150px;
+        text-align: center;
+        justify-content: center;
+      }
+
+      .about-content {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .about-image {
+        margin: 0 auto 20px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .page-title {
+        font-size: 2rem;
+      }
+
+      .page-subtitle {
+        font-size: 1rem;
+      }
+
+      .section {
+        padding: 20px;
+      }
+
+      .section-title {
+        font-size: 1.5rem;
+      }
+
+      .roles-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .company-stats {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .process-timeline {
+        padding-left: 40px;
+      }
+
+      .step-number {
+        left: -40px;
+        width: 30px;
+        height: 30px;
+        font-size: 0.9rem;
+      }
+    }
+
+    @media (max-width: 576px) {
+      .company-stats {
+        grid-template-columns: 1fr;
+      }
+
+      .sidebar-nav a {
+        min-width: 100%;
+      }
+
+      .back-to-top {
+        bottom: 20px;
+        right: 20px;
+        width: 40px;
+        height: 40px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Page Header -->
+  <header class="page-header">
+    <div class="container">
+      <h1 class="page-title">Cognizant GenC Next Placement Preparation 2025</h1>
+      <p class="page-subtitle">A step-by-step guide to cracking Cognizant's GenC Next placement drive.</p>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <div class="container">
+    <div class="main-content">
+      <!-- Sidebar Navigation -->
+      <aside class="sidebar">
+        <nav class="sidebar-nav">
+          <a href="#about-section" class="active"><i class="fas fa-building"></i> About GenC Next</a>
+          <a href="#roles-section"><i class="fas fa-briefcase"></i> Job Roles</a>
+          <a href="#eligibility-section"><i class="fas fa-check-circle"></i> Eligibility Criteria</a>
+          <a href="#registration-section"><i class="fas fa-clipboard-list"></i> Registration Process</a>
+          <a href="#selection-section"><i class="fas fa-tasks"></i> Selection Process</a>
+          <a href="#interview-section"><i class="fas fa-question-circle"></i> Interview Questions</a>
+        </nav>
+      </aside>
+
+      <!-- Content Area -->
+      <div class="content">
+        <!-- About Cognizant GenC Next Section -->
+        <section id="about-section" class="section">
+          <h2 class="section-title"><i class="fas fa-building"></i> About Cognizant GenC Next</h2>
+          <div class="about-content">
+            <div class="about-image">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Cognizant_logo_2022.svg/1200px-Cognizant_logo_2022.svg.png" alt="Cognizant Logo">
+            </div>
+            <div class="about-text">
+              <p>The Cognizant GenC Next is a standardized assessment conducted by Cognizant Technology Solutions. It serves as a comprehensive screening process that identifies capable graduates to join Cognizant and its client companies.</p>
+              <p>As Cognizant continues to be a leader in technology services and consulting, understanding the specifics of Cognizant GenC Next job roles and salary is essential for aspirants looking to start their careers in 2025.</p>
+              <p><strong>Founded:</strong> 1994</p>
+              <p><strong>Headquarters:</strong> Teaneck, New Jersey, United States</p>
+              <p><a href="https://careers.cognizant.com/global/en" target="_blank"><i class="fas fa-external-link-alt"></i> Visit Official Careers Page</a></p>
+            </div>
+          </div>
+          <div class="company-stats">
+            <div class="stat-card">
+              <div class="stat-number">300,000+</div>
+              <div class="stat-label">Employees Worldwide</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-number">100+</div>
+              <div class="stat-label">Countries</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-number">$19.4B</div>
+              <div class="stat-label">Revenue (2022)</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-number">85+</div>
+              <div class="stat-label">Fortune 500 Clients</div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Job Roles Section -->
+        <section id="roles-section" class="section">
+          <h2 class="section-title"><i class="fas fa-briefcase"></i> Job Roles & Salary</h2>
+          <p>Cognizant GenC Next offers various roles for fresh graduates based on their skills and performance in the selection process. Here are the key roles offered under the GenC Next program:</p>
+          
+          <div class="roles-grid">
+            <!-- Programmer Analyst Trainee Role -->
+            <div class="role-card">
+              <i class="fas fa-code role-icon"></i>
+              <h3 class="role-title">Programmer Analyst Trainee</h3>
+              <span class="role-salary">₹4.0 - 4.5 LPA</span>
+              <p class="role-description">Entry-level role focused on software development, coding, and testing. You'll work under the guidance of senior developers to build and maintain applications.</p>
+              <div class="role-requirements">
+                <h4>Key Skills Required:</h4>
+                <ul>
+                  <li>Proficiency in at least one programming language (Java, Python, C++)</li>
+                  <li>Basic understanding of data structures and algorithms</li>
+                  <li>Knowledge of database concepts</li>
+                  <li>Problem-solving aptitude</li>
+                </ul>
+              </div>
+            </div>
+            
+            <!-- Programmer Analyst Role -->
+            <div class="role-card">
+              <i class="fas fa-laptop-code role-icon"></i>
+              <h3 class="role-title">Programmer Analyst</h3>
+              <span class="role-salary">₹4.5 - 5.5 LPA</span>
+              <p class="role-description">Responsible for developing, testing, and maintaining software applications. This role involves more independent work and problem-solving compared to the trainee position.</p>
+              <div class="role-requirements">
+                <h4>Key Skills Required:</h4>
+                <ul>
+                  <li>Strong programming skills in multiple languages</li>
+                  <li>Understanding of software development lifecycle</li>
+                  <li>Knowledge of web technologies and frameworks</li>
+                  <li>Basic understanding of Agile methodologies</li>
+                </ul>
+              </div>
+            </div>
+            
+            <!-- Advanced Technology Associate Role -->
+            <div class="role-card">
+              <i class="fas fa-microchip role-icon"></i>
+              <h3 class="role-title">Advanced Technology Associate</h3>
+              <span class="role-salary">₹6.0 - 6.75 LPA</span>
+              <p class="role-description">Works on cutting-edge technologies and complex projects. This role is offered to candidates who demonstrate exceptional technical skills and potential.</p>
+              <div class="role-requirements">
+                <h4>Key Skills Required:</h4>
+                <ul>
+                  <li>Advanced programming skills</li>
+                  <li>Knowledge of emerging technologies (AI, ML, Cloud)</li>
+                  <li>Strong analytical and problem-solving abilities</li>
+                  <li>Good understanding of system architecture</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          
+          <h3 style="margin-top: 30px; color: var(--primary);">Career Progression at Cognizant</h3>
+          <p>Cognizant offers a structured career path for professionals joining through the GenC Next program:</p>
+          
+          <div class="process-timeline">
+            <!-- Associate Level -->
+            <div class="timeline-step">
+              <div class="step-number">1</div>
+              <div class="step-content">
+                <h3 class="step-title">Associate (0-2 years)</h3>
+                <p class="step-description">Starting position for fresh graduates. Focus on learning technical skills and understanding business domains.</p>
+                <div class="step-tips">
+                  <h5><i class="fas fa-rupee-sign"></i> Salary Range</h5>
+                  <p>₹4.0 - 6.75 LPA (depending on role)</p>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Senior Associate Level -->
+            <div class="timeline-step">
+              <div class="step-number">2</div>
+              <div class="step-content">
+                <h3 class="step-title">Senior Associate (2-4 years)</h3>
+                <p class="step-description">More independent work with deeper technical expertise. May start mentoring junior team members.</p>
+                <div class="step-tips">
+                  <h5><i class="fas fa-rupee-sign"></i> Salary Range</h5>
+                  <p>₹6.5 - 9.0 LPA</p>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Manager Level -->
+            <div class="timeline-step">
+              <div class="step-number">3</div>
+              <div class="step-content">
+                <h3 class="step-title">Manager (4-7 years)</h3>
+                <p class="step-description">Technical leadership role with responsibility for project delivery and team management.</p>
+                <div class="step-tips">
+                  <h5><i class="fas fa-rupee-sign"></i> Salary Range</h5>
+                  <p>₹9.0 - 15.0 LPA</p>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Senior Manager Level -->
+            <div class="timeline-step">
+              <div class="step-number">4</div>
+              <div class="step-content">
+                <h3 class="step-title">Senior Manager (7-10 years)</h3>
+                <p class="step-description">Strategic role involving multiple projects or accounts, with significant people management responsibilities.</p>
+                <div class="step-tips">
+                  <h5><i class="fas fa-rupee-sign"></i> Salary Range</h5>
+                  <p>₹15.0 - 25.0 LPA</p>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Director and Above -->
+            <div class="timeline-step">
+              <div class="step-number">5</div>
+              <div class="step-content">
+                <h3 class="step-title">Director and Above (10+ years)</h3>
+                <p class="step-description">Leadership positions focusing on business strategy, client relationships, and organizational growth.</p>
+                <div class="step-tips">
+                  <h5><i class="fas fa-rupee-sign"></i> Salary Range</h5>
+                  <p>₹25.0 LPA and above</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Interview Questions Section -->
+        <section id="interview-section" class="section">
+          <h2 class="section-title"><i class="fas fa-question-circle"></i> Interview Questions</h2>
+          <p>Prepare for your Cognizant GenC Next interview with these commonly asked questions across different categories:</p>
+          
+          <div class="questions-tabs">
+            <button class="tab-button active" data-tab="technical">Technical Round</button>
+            <button class="tab-button" data-tab="hr">HR Round</button>
+            <button class="tab-button" data-tab="behavioral">Behavioral Questions</button>
+          </div>
+          
+          <!-- Technical Questions -->
+          <div class="tab-content active" id="technical-tab">
+            <div class="question-accordion">
+              <div class="question-header">
+                <div class="question-title">Explain object-oriented programming principles like inheritance and polymorphism.</div>
+                <div class="question-toggle"><i class="fas fa-chevron-down"></i></div>
+              </div>
+              <div class="question-body">
+                <div class="question-content">
+                  <p><strong>Inheritance:</strong> Inheritance is a mechanism where a new class (derived class) inherits properties and behaviors from an existing class (base class). This promotes code reusability and establishes an is-a relationship between classes.</p>
+                  <p><strong>Polymorphism:</strong> Polymorphism allows objects of different classes to be treated as objects of a common superclass. It enables a single interface to represent different underlying forms (data types). The two types of polymorphism are:</p>
+                  <ul>
+                    <li><strong>Compile-time polymorphism (Method Overloading):</strong> Multiple methods with the same name but different parameters.</li>
+                    <li><strong>Runtime polymorphism (Method Overriding):</strong> Subclass provides a specific implementation for a method already defined in its superclass.</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            
+            <div class="question-accordion">
+              <div class="question-header">
+                <div class="question-title">What is the difference between a stack and a queue?</div>
+                <div class="question-toggle"><i class="fas fa-chevron-down"></i></div>
+              </div>
+              <div class="question-body">
+                <div class="question-content">
+                  <p><strong>Stack:</strong></p>
+                  <ul>
+                    <li>Follows Last In First Out (LIFO) principle</li>
+                    <li>Elements are added and removed from the same end (top)</li>
+                    <li>Operations: push (add) and pop (remove)</li>
+                    <li>Example: Function call stack, undo operation in text editors</li>
+                  </ul>
+                  <p><strong>Queue:</strong></p>
+                  <ul>
+                    <li>Follows First In First Out (FIFO) principle</li>
+                    <li>Elements are added at one end (rear) and removed from the other end (front)</li>
+                    <li>Operations: enqueue (add) and dequeue (remove)</li>
+                    <li>Example: Print queue, task scheduling</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            
+            <div class="question-accordion">
+              <div class="question-header">
+                <div class="question-title">Explain the concept of database normalization.</div>
+                <div class="question-toggle"><i class="fas fa-chevron-down"></i></div>
+              </div>
+              <div class="question-body">
+                <div class="question-content">
+                  <p>Database normalization is the process of organizing data in a database to reduce redundancy and improve data integrity. It involves dividing large tables into smaller ones and defining relationships between them.</p>
+                  <p><strong>The main forms of normalization are:</strong></p>
+                  <ul>
+                    <li><strong>First Normal Form (1NF):</strong> Eliminate repeating groups and ensure atomic values (values cannot be divided further).</li>
+                    <li><strong>Second Normal Form (2NF):</strong> Meet 1NF requirements and remove partial dependencies (non-key attributes must depend on the entire primary key).</li>
+                    <li><strong>Third Normal Form (3NF):</strong> Meet 2NF requirements and remove transitive dependencies (non-key attributes must not depend on other non-key attributes).</li>
+                    <li><strong>Boyce-Codd Normal Form (BCNF):</strong> A stronger version of 3NF where every determinant must be a candidate key.</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- HR Questions -->
+          <div class="tab-content" id="hr-tab">
+            <div class="question-accordion">
+              <div class="question-header">
+                <div class="question-title">Tell me about yourself.</div>
+                <div class="question-toggle"><i class="fas fa-chevron-down"></i></div>
+              </div>
+              <div class="question-body">
+                <div class="question-content">
+                  <p>This is often the opening question. Keep your answer concise (1-2 minutes) and focus on your education, relevant skills, projects, and career aspirations. Structure your answer as follows:</p>
+                  <ul>
+                    <li><strong>Introduction:</strong> Brief overview of your educational background.</li>
+                    <li><strong>Skills & Strengths:</strong> Highlight technical skills and personal strengths relevant to the role.</li>
+                    <li><strong>Experience:</strong> Mention key projects or internships that demonstrate your capabilities.</li>
+                    <li><strong>Career Goals:</strong> Express your interest in the role and how it aligns with your career aspirations.</li>
+                  </ul>
+                  <p>Avoid personal details unrelated to your professional life.</p>
+                </div>
+              </div>
+            </div>
+            
+            <div class="question-accordion">
+              <div class="question-header">
+                <div class="question-title">Why do you want to join Cognizant?</div>
+                <div class="question-toggle"><i class="fas fa-chevron-down"></i></div>
+              </div>
+              <div class="question-body">
+                <div class="question-content">
+                  <p>Research Cognizant before your interview and mention specific aspects that attract you to the company, such as:</p>
+                  <ul>
+                    <li>Global presence and diverse work environment</li>
+                    <li>Opportunity to work with cutting-edge technologies</li>
+                    <li>Strong focus on innovation and digital transformation</li>
+                    <li>Excellent learning and growth opportunities</li>
+                    <li>Company culture and values that align with your own</li>
+                  </ul>
+                  <p>Be specific about how Cognizant's GenC Next program will help you achieve your career goals and how you can contribute to the company's success.</p>
+                </div>
+              </div>
+            </div>
+            
+            <div class="question-accordion">
+              <div class="question-header">
+                <div class="question-title">Where do you see yourself in 5 years?</div>
+                <div class="question-toggle"><i class="fas fa-chevron-down"></i></div>
+              </div>
+              <div class="question-body">
+                <div class="question-content">
+                  <p>This question assesses your career planning and ambition. Your answer should be:</p>
+                  <ul>
+                    <li><strong>Realistic:</strong> Set achievable goals based on the typical career progression at Cognizant.</li>
+                    <li><strong>Ambitious:</strong> Show drive and desire to grow professionally.</li>
+                    <li><strong>Relevant:</strong> Align your goals with opportunities available at Cognizant.</li>
+                  </ul>
+                  <p>A good response might include advancing to a senior technical role, developing expertise in specific technologies, taking on leadership responsibilities, or contributing to significant projects within the company.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Behavioral Questions -->
+          <div class="tab-content" id="behavioral-tab">
+            <div class="question-accordion">
+              <div class="question-header">
+                <div class="question-title">Describe a challenging project you worked on and how you overcame obstacles.</div>
+                <div class="question-toggle"><i class="fas fa-chevron-down"></i></div>
+              </div>
+              <div class="question-body">
+                <div class="question-content">
+                  <p>Use the STAR method to structure your answer:</p>
+                  <ul>
+                    <li><strong>Situation:</strong> Briefly describe the project and its objectives.</li>
+                    <li><strong>Task:</strong> Explain your specific responsibilities and the challenges you faced.</li>
+                    <li><strong>Action:</strong> Detail the steps you took to address the challenges, emphasizing your problem-solving approach, technical skills, and collaboration with others.</li>
+                    <li><strong>Result:</strong> Share the positive outcomes of your actions, including what you learned from the experience.</li>
+                  </ul>
+                  <p>Focus on demonstrating skills valued at Cognizant, such as problem-solving, adaptability, teamwork, and technical expertise.</p>
+                </div>
+              </div>
+            </div>
+            
+            <div class="question-accordion">
+              <div class="question-header">
+                <div class="question-title">How do you handle tight deadlines and pressure?</div>
+                <div class="question-toggle"><i class="fas fa-chevron-down"></i></div>
+              </div>
+              <div class="question-body">
+                <div class="question-content">
+                  <p>Describe your approach to managing stress and meeting deadlines. Include specific examples from your academic or work experience where you successfully handled pressure. Mention strategies like:</p>
+                  <ul>
+                    <li>Prioritization and breaking tasks into smaller, manageable parts</li>
+                    <li>Time management techniques you use effectively</li>
+                    <li>Maintaining a positive attitude and focus under pressure</li>
+                    <li>Seeking help or collaborating when necessary</li>
+                    <li>Learning from past experiences to improve future performance</li>
+                  </ul>
+                  <p>Emphasize your ability to remain calm and focused under pressure while delivering quality work on time.</p>
+                </div>
+              </div>
+            </div>
+            
+            <div class="question-accordion">
+              <div class="question-header">
+                <div class="question-title">Tell me about a time when you had to learn a new technology quickly.</div>
+                <div class="question-toggle"><i class="fas fa-chevron-down"></i></div>
+              </div>
+              <div class="question-body">
+                <div class="question-content">
+                  <p>This question assesses your adaptability and learning agility. Again, use the STAR method:</p>
+                  <ul>
+                    <li><strong>Situation:</strong> Describe the context that required you to learn something new.</li>
+                    <li><strong>Task:</strong> Explain why learning this technology was necessary and the timeframe you had.</li>
+                    <li><strong>Action:</strong> Detail your learning approach, including resources used (documentation, tutorials, online courses), practice methods, and how you sought help when needed.</li>
+                    <li><strong>Result:</strong> Share how you successfully applied the new knowledge, the outcome of the project, and any recognition received.</li>
+                  </ul>
+                  <p>Highlight your self-motivation, resourcefulness, and systematic approach to learning new skills—qualities highly valued in the fast-paced tech environment at Cognizant.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Mock Test Button -->
+        <a href="#" class="mock-test-btn">Start Cognizant GenC Next Mock Test <i class="fas fa-arrow-right"></i></a>
+        <!-- Selection Process Section -->
+        <section id="selection-section" class="section">
+          <h2 class="section-title"><i class="fas fa-tasks"></i> Selection Process</h2>
+          <p>The Cognizant GenC Next selection process typically consists of the following stages:</p>
+          
+          <div class="process-timeline">
+            <!-- Online Assessment -->
+            <div class="timeline-step">
+              <div class="step-number">1</div>
+              <div class="step-content">
+                <h3 class="step-title">Online Assessment</h3>
+                <p class="step-description">A comprehensive test that evaluates your aptitude, logical reasoning, and technical knowledge.</p>
+                <div class="step-tips">
+                  <h5><i class="fas fa-lightbulb"></i> Key Components</h5>
+                  <ul>
+                    <li><strong>Quantitative Aptitude:</strong> Mathematical and logical reasoning questions</li>
+                    <li><strong>Verbal Ability:</strong> English language proficiency assessment</li>
+                    <li><strong>Technical MCQs:</strong> Questions on programming concepts, data structures, and algorithms</li>
+                    <li><strong>Coding Questions:</strong> 1-2 programming problems to solve</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Technical Interview -->
+            <div class="timeline-step">
+              <div class="step-number">2</div>
+              <div class="step-content">
+                <h3 class="step-title">Technical Interview</h3>
+                <p class="step-description">An in-depth assessment of your technical knowledge, problem-solving skills, and project experience.</p>
+                <div class="step-tips">
+                  <h5><i class="fas fa-lightbulb"></i> Focus Areas</h5>
+                  <ul>
+                    <li>Core programming concepts and data structures</li>
+                    <li>Object-oriented programming principles</li>
+                    <li>Database concepts and SQL queries</li>
+                    <li>System design basics</li>
+                    <li>Projects mentioned in your resume</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            
+            <!-- HR Interview -->
+            <div class="timeline-step">
+              <div class="step-number">3</div>
+              <div class="step-content">
+                <h3 class="step-title">HR Interview</h3>
+                <p class="step-description">Evaluates your communication skills, cultural fit, and career aspirations.</p>
+                <div class="step-tips">
+                  <h5><i class="fas fa-lightbulb"></i> Common Topics</h5>
+                  <ul>
+                    <li>Background and educational qualifications</li>
+                    <li>Career goals and aspirations</li>
+                    <li>Knowledge about Cognizant and the industry</li>
+                    <li>Willingness to relocate and work in shifts</li>
+                    <li>Behavioral questions to assess soft skills</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Final Selection -->
+            <div class="timeline-step">
+              <div class="step-number">4</div>
+              <div class="step-content">
+                <h3 class="step-title">Final Selection & Offer</h3>
+                <p class="step-description">Based on your performance in all previous rounds, Cognizant will make the final selection decision.</p>
+                <div class="step-tips">
+                  <h5><i class="fas fa-lightbulb"></i> Important Notes</h5>
+                  <ul>
+                    <li>Offer letters are typically sent via email</li>
+                    <li>Role and compensation details will be specified in the offer</li>
+                    <li>Background verification process will be initiated</li>
+                    <li>Training location and joining date will be communicated</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Back to Top Button -->
+  <div class="back-to-top">
+    <i class="fas fa-arrow-up"></i>
+  </div>
+
+  <!-- JavaScript -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Sidebar Navigation Active State
+      const sidebarLinks = document.querySelectorAll('.sidebar-nav a');
+      const sections = document.querySelectorAll('.section');
+      
+      // Set active link based on scroll position
+      function setActiveLink() {
+        let currentSection = '';
+        
+        sections.forEach(section => {
+          const sectionTop = section.offsetTop - 100;
+          const sectionHeight = section.offsetHeight;
+          
+          if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
+            currentSection = section.getAttribute('id');
+          }
+        });
+        
+        sidebarLinks.forEach(link => {
+          link.classList.remove('active');
+          if (link.getAttribute('href') === `#${currentSection}`) {
+            link.classList.add('active');
+          }
+        });
+      }
+      
+      window.addEventListener('scroll', setActiveLink);
+      
+      // Smooth scrolling for sidebar links
+      sidebarLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+          e.preventDefault();
+          const targetId = this.getAttribute('href');
+          const targetSection = document.querySelector(targetId);
+          
+          window.scrollTo({
+            top: targetSection.offsetTop - 50,
+            behavior: 'smooth'
+          });
+        });
+      });
+      
+      // Back to Top Button
+      const backToTopBtn = document.querySelector('.back-to-top');
+      
+      window.addEventListener('scroll', function() {
+        if (window.scrollY > 300) {
+          backToTopBtn.classList.add('visible');
+        } else {
+          backToTopBtn.classList.remove('visible');
+        }
+      });
+      
+      backToTopBtn.addEventListener('click', function() {
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+        });
+      });
+      
+      // Interview Questions Tabs
+      const tabButtons = document.querySelectorAll('.tab-button');
+      const tabContents = document.querySelectorAll('.tab-content');
+      
+      tabButtons.forEach(button => {
+        button.addEventListener('click', function() {
+          // Remove active class from all buttons and contents
+          tabButtons.forEach(btn => btn.classList.remove('active'));
+          tabContents.forEach(content => content.classList.remove('active'));
+          
+          // Add active class to clicked button and corresponding content
+          this.classList.add('active');
+          document.getElementById(`${this.dataset.tab}-tab`).classList.add('active');
+        });
+      });
+      
+      // Question Accordions
+      const questionAccordions = document.querySelectorAll('.question-accordion');
+      
+      questionAccordions.forEach(accordion => {
+        const header = accordion.querySelector('.question-header');
+        
+        header.addEventListener('click', function() {
+          accordion.classList.toggle('active');
+        });
+      });
+    });
+  </script>
+</body>
+</html>
